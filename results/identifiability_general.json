@@ -1,0 +1,463 @@
+{
+  "summary": {
+    "model": "capacitated facility location (CFLP)",
+    "kpi": "load of a designated facility (sum_i y_{i,1})",
+    "n_instances": 24,
+    "n_kpi_unidentified": 2,
+    "n_optface_wider_than_inner": 2,
+    "max_inner_width": 1.0,
+    "max_optface_width": 3.0,
+    "example": {
+      "m": 5,
+      "n": 14,
+      "seed": 4,
+      "z_star": 159,
+      "inner_[lo,hi]": [
+        0.0,
+        0.0
+      ],
+      "inner_width": 0.0,
+      "optface_[lo,hi]": [
+        0.0,
+        3.0
+      ],
+      "optface_width": 3.0,
+      "kpi_unidentified": false,
+      "optface_wider": true
+    }
+  },
+  "rows": [
+    {
+      "m": 5,
+      "n": 14,
+      "seed": 0,
+      "z_star": 151,
+      "inner_[lo,hi]": [
+        2.0,
+        3.0
+      ],
+      "inner_width": 1.0,
+      "optface_[lo,hi]": [
+        2.0,
+        3.0
+      ],
+      "optface_width": 1.0,
+      "kpi_unidentified": true,
+      "optface_wider": false
+    },
+    {
+      "m": 5,
+      "n": 14,
+      "seed": 1,
+      "z_star": 146,
+      "inner_[lo,hi]": [
+        2.0,
+        2.0
+      ],
+      "inner_width": 0.0,
+      "optface_[lo,hi]": [
+        2.0,
+        2.0
+      ],
+      "optface_width": 0.0,
+      "kpi_unidentified": false,
+      "optface_wider": false
+    },
+    {
+      "m": 5,
+      "n": 14,
+      "seed": 2,
+      "z_star": 158,
+      "inner_[lo,hi]": [
+        4.0,
+        4.0
+      ],
+      "inner_width": 0.0,
+      "optface_[lo,hi]": [
+        4.0,
+        4.0
+      ],
+      "optface_width": 0.0,
+      "kpi_unidentified": false,
+      "optface_wider": false
+    },
+    {
+      "m": 5,
+      "n": 14,
+      "seed": 3,
+      "z_star": 172,
+      "inner_[lo,hi]": [
+        0.0,
+        0.0
+      ],
+      "inner_width": 0.0,
+      "optface_[lo,hi]": [
+        0.0,
+        0.0
+      ],
+      "optface_width": 0.0,
+      "kpi_unidentified": false,
+      "optface_wider": false
+    },
+    {
+      "m": 5,
+      "n": 14,
+      "seed": 4,
+      "z_star": 159,
+      "inner_[lo,hi]": [
+        0.0,
+        0.0
+      ],
+      "inner_width": 0.0,
+      "optface_[lo,hi]": [
+        0.0,
+        3.0
+      ],
+      "optface_width": 3.0,
+      "kpi_unidentified": false,
+      "optface_wider": true
+    },
+    {
+      "m": 5,
+      "n": 14,
+      "seed": 5,
+      "z_star": 156,
+      "inner_[lo,hi]": [
+        3.0,
+        3.0
+      ],
+      "inner_width": 0.0,
+      "optface_[lo,hi]": [
+        3.0,
+        3.0
+      ],
+      "optface_width": 0.0,
+      "kpi_unidentified": false,
+      "optface_wider": false
+    },
+    {
+      "m": 5,
+      "n": 14,
+      "seed": 6,
+      "z_star": 143,
+      "inner_[lo,hi]": [
+        3.0,
+        3.0
+      ],
+      "inner_width": 0.0,
+      "optface_[lo,hi]": [
+        3.0,
+        3.0
+      ],
+      "optface_width": 0.0,
+      "kpi_unidentified": false,
+      "optface_wider": false
+    },
+    {
+      "m": 5,
+      "n": 14,
+      "seed": 7,
+      "z_star": 163,
+      "inner_[lo,hi]": [
+        4.0,
+        4.0
+      ],
+      "inner_width": 0.0,
+      "optface_[lo,hi]": [
+        4.0,
+        4.0
+      ],
+      "optface_width": 0.0,
+      "kpi_unidentified": false,
+      "optface_wider": false
+    },
+    {
+      "m": 5,
+      "n": 14,
+      "seed": 8,
+      "z_star": 154,
+      "inner_[lo,hi]": [
+        5.0,
+        5.0
+      ],
+      "inner_width": 0.0,
+      "optface_[lo,hi]": [
+        5.0,
+        5.0
+      ],
+      "optface_width": 0.0,
+      "kpi_unidentified": false,
+      "optface_wider": false
+    },
+    {
+      "m": 5,
+      "n": 14,
+      "seed": 9,
+      "z_star": 160,
+      "inner_[lo,hi]": [
+        3.0,
+        3.0
+      ],
+      "inner_width": 0.0,
+      "optface_[lo,hi]": [
+        3.0,
+        3.0
+      ],
+      "optface_width": 0.0,
+      "kpi_unidentified": false,
+      "optface_wider": false
+    },
+    {
+      "m": 5,
+      "n": 14,
+      "seed": 10,
+      "z_star": 157,
+      "inner_[lo,hi]": [
+        3.0,
+        4.0
+      ],
+      "inner_width": 1.0,
+      "optface_[lo,hi]": [
+        3.0,
+        4.0
+      ],
+      "optface_width": 1.0,
+      "kpi_unidentified": true,
+      "optface_wider": false
+    },
+    {
+      "m": 5,
+      "n": 14,
+      "seed": 11,
+      "z_star": 162,
+      "inner_[lo,hi]": [
+        2.0,
+        2.0
+      ],
+      "inner_width": 0.0,
+      "optface_[lo,hi]": [
+        2.0,
+        2.0
+      ],
+      "optface_width": 0.0,
+      "kpi_unidentified": false,
+      "optface_wider": false
+    },
+    {
+      "m": 5,
+      "n": 14,
+      "seed": 12,
+      "z_star": 156,
+      "inner_[lo,hi]": [
+        0.0,
+        0.0
+      ],
+      "inner_width": 0.0,
+      "optface_[lo,hi]": [
+        0.0,
+        0.0
+      ],
+      "optface_width": 0.0,
+      "kpi_unidentified": false,
+      "optface_wider": false
+    },
+    {
+      "m": 5,
+      "n": 14,
+      "seed": 13,
+      "z_star": 146,
+      "inner_[lo,hi]": [
+        0.0,
+        0.0
+      ],
+      "inner_width": 0.0,
+      "optface_[lo,hi]": [
+        0.0,
+        0.0
+      ],
+      "optface_width": 0.0,
+      "kpi_unidentified": false,
+      "optface_wider": false
+    },
+    {
+      "m": 5,
+      "n": 14,
+      "seed": 14,
+      "z_star": 164,
+      "inner_[lo,hi]": [
+        5.0,
+        5.0
+      ],
+      "inner_width": 0.0,
+      "optface_[lo,hi]": [
+        5.0,
+        5.0
+      ],
+      "optface_width": 0.0,
+      "kpi_unidentified": false,
+      "optface_wider": false
+    },
+    {
+      "m": 5,
+      "n": 14,
+      "seed": 15,
+      "z_star": 170,
+      "inner_[lo,hi]": [
+        3.0,
+        3.0
+      ],
+      "inner_width": 0.0,
+      "optface_[lo,hi]": [
+        3.0,
+        3.0
+      ],
+      "optface_width": 0.0,
+      "kpi_unidentified": false,
+      "optface_wider": false
+    },
+    {
+      "m": 5,
+      "n": 14,
+      "seed": 16,
+      "z_star": 142,
+      "inner_[lo,hi]": [
+        4.0,
+        4.0
+      ],
+      "inner_width": 0.0,
+      "optface_[lo,hi]": [
+        4.0,
+        4.0
+      ],
+      "optface_width": 0.0,
+      "kpi_unidentified": false,
+      "optface_wider": false
+    },
+    {
+      "m": 5,
+      "n": 14,
+      "seed": 17,
+      "z_star": 155,
+      "inner_[lo,hi]": [
+        5.0,
+        5.0
+      ],
+      "inner_width": 0.0,
+      "optface_[lo,hi]": [
+        5.0,
+        5.0
+      ],
+      "optface_width": 0.0,
+      "kpi_unidentified": false,
+      "optface_wider": false
+    },
+    {
+      "m": 5,
+      "n": 14,
+      "seed": 18,
+      "z_star": 153,
+      "inner_[lo,hi]": [
+        3.0,
+        3.0
+      ],
+      "inner_width": 0.0,
+      "optface_[lo,hi]": [
+        0.0,
+        3.0
+      ],
+      "optface_width": 3.0,
+      "kpi_unidentified": false,
+      "optface_wider": true
+    },
+    {
+      "m": 5,
+      "n": 14,
+      "seed": 19,
+      "z_star": 143,
+      "inner_[lo,hi]": [
+        4.0,
+        4.0
+      ],
+      "inner_width": 0.0,
+      "optface_[lo,hi]": [
+        4.0,
+        4.0
+      ],
+      "optface_width": 0.0,
+      "kpi_unidentified": false,
+      "optface_wider": false
+    },
+    {
+      "m": 5,
+      "n": 14,
+      "seed": 20,
+      "z_star": 164,
+      "inner_[lo,hi]": [
+        0.0,
+        0.0
+      ],
+      "inner_width": 0.0,
+      "optface_[lo,hi]": [
+        0.0,
+        0.0
+      ],
+      "optface_width": 0.0,
+      "kpi_unidentified": false,
+      "optface_wider": false
+    },
+    {
+      "m": 5,
+      "n": 14,
+      "seed": 21,
+      "z_star": 152,
+      "inner_[lo,hi]": [
+        0.0,
+        0.0
+      ],
+      "inner_width": 0.0,
+      "optface_[lo,hi]": [
+        0.0,
+        0.0
+      ],
+      "optface_width": 0.0,
+      "kpi_unidentified": false,
+      "optface_wider": false
+    },
+    {
+      "m": 5,
+      "n": 14,
+      "seed": 22,
+      "z_star": 170,
+      "inner_[lo,hi]": [
+        3.0,
+        3.0
+      ],
+      "inner_width": 0.0,
+      "optface_[lo,hi]": [
+        3.0,
+        3.0
+      ],
+      "optface_width": 0.0,
+      "kpi_unidentified": false,
+      "optface_wider": false
+    },
+    {
+      "m": 5,
+      "n": 14,
+      "seed": 23,
+      "z_star": 144,
+      "inner_[lo,hi]": [
+        0.0,
+        0.0
+      ],
+      "inner_width": 0.0,
+      "optface_[lo,hi]": [
+        0.0,
+        0.0
+      ],
+      "optface_width": 0.0,
+      "kpi_unidentified": false,
+      "optface_wider": false
+    }
+  ]
+}
