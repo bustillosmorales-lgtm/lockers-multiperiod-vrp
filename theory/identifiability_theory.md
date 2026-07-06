@@ -81,31 +81,38 @@ $x^\star$ (e.g. one returned by a solver) and solve two LPs. If they disagree, $
 is not identified and the gap is a *lower bound* on the width of the identified set
 (the true set, over all optimal designs, can only be wider).
 
-> **Proposition 1b (the identified set over a mixed-integer optimal face).**
+> **Proposition 1b (the identified set over the cost-optimal set).**
 > When the design variables $x$ are (partly) integer — as the routing variables of a
 > VRP are — the cost-optimal designs $X^\star$ do **not** form the optimal face of a
 > single LP; they are a mixed-integer set, and
-> $g(\mathcal S^\star)=\{g(x,f):x\in X^\star,\ f\in F(x)\}$ is the image of $g$ over a
-> *union* of recourse polytopes, one per optimal integer design. (i) The two-LP
-> interval of Proposition 1 at a fixed $x^\star$ is contained in $g(\mathcal S^\star)$,
-> with equality iff the $g$-range is invariant across $X^\star$; in general it is a
-> conservative inner bound. (ii) The exact endpoints solve
-> $\min/\max\{g(x,f):(x,f)\in P,\ c(x)=z^\star\}$ over the optimal face — a
-> *mixed-integer* program for integer $x$. So computing the exact identified set, and
-> deciding identification over all optimal designs, is at least as hard as optimizing
-> over the optimal face of the design model, whereas the fixed-design test is two LPs.
+> $g(\mathcal S^\star)=\{g(x,f):x\in X^\star,\ f\in F(x)\}=\bigcup_{x\in X^\star}I(x)$
+> is the image of $g$ over a *union* of recourse polytopes, where $I(x)=g(\{x\}\times
+> F(x))$. (i) The two-LP interval $I(x^\star)$ of Proposition 1 at a fixed $x^\star$ is
+> contained in $g(\mathcal S^\star)$, with equality iff no other optimal design
+> enlarges the range, i.e. $I(x)\subseteq I(x^\star)$ for all $x\in X^\star$
+> (invariance of $I(\cdot)$ is a sufficient special case); in general a conservative
+> inner bound. (ii) Since $X^\star$ is discrete, $g(\mathcal S^\star)$ may be a union
+> of disjoint intervals; its extreme values (range) solve $\min/\max\{g(x,f):(x,f)\in
+> P,\ x\ \text{integer},\ c(x)=z^\star\}$ — a *mixed-integer* program — exact as an
+> interval when connected, which already decides identification. Computing it needs
+> $z^\star$ (NP-hard for the routing class) and then an optimization of $g$ over the
+> cost-optimal set, whereas the fixed-design test is two LPs.
 
-*Proof.* $\mathcal S^\star=\bigcup_{x^\star\in X^\star}\{x^\star\}\times F(x^\star)$
-by definition. (i) The interval is $g$ over one fibre, hence a subset; equality holds
-iff no other optimal design widens the range. (ii) The endpoints optimize $g$ subject
-to $c(x)=z^\star$; with $x$ integer this is a MILP, and fixing $x=x^\star$ drops
-integrality to the two LPs. $\square$
+*Proof.* $\mathcal S^\star=\bigcup_{x^\star\in X^\star}\{x^\star\}\times F(x^\star)$,
+so $g(\mathcal S^\star)=\bigcup_x I(x)$. (i) $I(x^\star)$ is $g$ over one fibre, hence
+a subset; the union equals it iff every other $I(x)\subseteq I(x^\star)$. (ii) The
+extreme values optimize $g$ over $\{x\ \text{integer},\ c(x)=z^\star\}$; a MILP, and
+fixing $x=x^\star$ drops integrality to the two LPs. Holds for any $g$ with interval
+fixed-design image, incl. quasi-linear $\rho$ (Charnes–Cooper). $\square$
 
 This is the honest separation behind the framing: the *fixed-design* half is the
 classical alternative-optima fact (two LPs, polynomial); the *identified set over the
-mixed-integer optimal face* is the new, hard object, for which the two LPs are only a
-certified inner bound. The locker certificate reports the fixed-routing inner bound
-(exact when the optimal routing is unique).
+mixed-integer cost-optimal set* is the new, hard object, for which the two LPs are
+only a certified inner bound. **Instantiated** (`code/optface_rho.py`,
+`results/optface_rho.json`): on 12 five-locker instances the exact range over the
+cost-optimal set is strictly wider than the single-routing inner bound in 10, e.g.
+inner $[0.45,0.58]$ (width 0.14) inside exact $[0.21,0.58]$ (width 0.37, 2.7×). So the
+locker certificate is a genuine inner bound and understates $\rho$'s non-identification.
 
 > **Proposition 2 (sufficient condition via free recourse).**
 > Suppose the objective is a function of $x$ alone. If there exist $x^\star\in

@@ -1,0 +1,232 @@
+{
+  "tau": 2,
+  "summary": {
+    "n_instances": 12,
+    "n_optface_wider_than_inner": 10,
+    "max_inner_width": 0.2967,
+    "max_optface_width": 0.3691,
+    "example_wider": {
+      "n": 5,
+      "seed": 0,
+      "Q": 40,
+      "z_star": 320,
+      "inner_bound_[lo,hi]": [
+        0.280488,
+        0.524752
+      ],
+      "inner_width": 0.244264,
+      "optface_[lo,hi]": [
+        0.268293,
+        0.524752
+      ],
+      "optface_width": 0.256459,
+      "optface_strictly_wider": true
+    }
+  },
+  "rows": [
+    {
+      "n": 5,
+      "seed": 0,
+      "Q": 40,
+      "z_star": 320,
+      "inner_bound_[lo,hi]": [
+        0.280488,
+        0.524752
+      ],
+      "inner_width": 0.244264,
+      "optface_[lo,hi]": [
+        0.268293,
+        0.524752
+      ],
+      "optface_width": 0.256459,
+      "optface_strictly_wider": true
+    },
+    {
+      "n": 5,
+      "seed": 1,
+      "Q": 40,
+      "z_star": 552,
+      "inner_bound_[lo,hi]": [
+        0.270588,
+        0.567308
+      ],
+      "inner_width": 0.29672,
+      "optface_[lo,hi]": [
+        0.270588,
+        0.583333
+      ],
+      "optface_width": 0.312745,
+      "optface_strictly_wider": true
+    },
+    {
+      "n": 5,
+      "seed": 2,
+      "Q": 40,
+      "z_star": 520,
+      "inner_bound_[lo,hi]": [
+        0.353448,
+        0.531746
+      ],
+      "inner_width": 0.178298,
+      "optface_[lo,hi]": [
+        0.318966,
+        0.531746
+      ],
+      "optface_width": 0.21278,
+      "optface_strictly_wider": true
+    },
+    {
+      "n": 5,
+      "seed": 3,
+      "Q": 40,
+      "z_star": 426,
+      "inner_bound_[lo,hi]": [
+        0.35,
+        0.570175
+      ],
+      "inner_width": 0.220175,
+      "optface_[lo,hi]": [
+        0.34,
+        0.570175
+      ],
+      "optface_width": 0.230175,
+      "optface_strictly_wider": true
+    },
+    {
+      "n": 5,
+      "seed": 4,
+      "Q": 40,
+      "z_star": 488,
+      "inner_bound_[lo,hi]": [
+        0.274725,
+        0.560748
+      ],
+      "inner_width": 0.286023,
+      "optface_[lo,hi]": [
+        0.274725,
+        0.560748
+      ],
+      "optface_width": 0.286023,
+      "optface_strictly_wider": false
+    },
+    {
+      "n": 5,
+      "seed": 5,
+      "Q": 40,
+      "z_star": 440,
+      "inner_bound_[lo,hi]": [
+        0.329268,
+        0.556701
+      ],
+      "inner_width": 0.227433,
+      "optface_[lo,hi]": [
+        0.304878,
+        0.556701
+      ],
+      "optface_width": 0.251823,
+      "optface_strictly_wider": true
+    },
+    {
+      "n": 5,
+      "seed": 6,
+      "Q": 40,
+      "z_star": 426,
+      "inner_bound_[lo,hi]": [
+        0.364706,
+        0.582524
+      ],
+      "inner_width": 0.217818,
+      "optface_[lo,hi]": [
+        0.270588,
+        0.582524
+      ],
+      "optface_width": 0.311936,
+      "optface_strictly_wider": true
+    },
+    {
+      "n": 5,
+      "seed": 7,
+      "Q": 40,
+      "z_star": 344,
+      "inner_bound_[lo,hi]": [
+        0.285714,
+        0.579545
+      ],
+      "inner_width": 0.293831,
+      "optface_[lo,hi]": [
+        0.285714,
+        0.579545
+      ],
+      "optface_width": 0.293831,
+      "optface_strictly_wider": false
+    },
+    {
+      "n": 5,
+      "seed": 8,
+      "Q": 40,
+      "z_star": 556,
+      "inner_bound_[lo,hi]": [
+        0.39,
+        0.54386
+      ],
+      "inner_width": 0.15386,
+      "optface_[lo,hi]": [
+        0.260417,
+        0.54386
+      ],
+      "optface_width": 0.283443,
+      "optface_strictly_wider": true
+    },
+    {
+      "n": 5,
+      "seed": 9,
+      "Q": 40,
+      "z_star": 516,
+      "inner_bound_[lo,hi]": [
+        0.405405,
+        0.586207
+      ],
+      "inner_width": 0.180802,
+      "optface_[lo,hi]": [
+        0.283784,
+        0.586207
+      ],
+      "optface_width": 0.302423,
+      "optface_strictly_wider": true
+    },
+    {
+      "n": 5,
+      "seed": 10,
+      "Q": 40,
+      "z_star": 312,
+      "inner_bound_[lo,hi]": [
+        0.387755,
+        0.561404
+      ],
+      "inner_width": 0.173649,
+      "optface_[lo,hi]": [
+        0.285714,
+        0.561404
+      ],
+      "optface_width": 0.27569,
+      "optface_strictly_wider": true
+    },
+    {
+      "n": 5,
+      "seed": 11,
+      "Q": 40,
+      "z_star": 352,
+      "inner_bound_[lo,hi]": [
+        0.445783,
+        0.582418
+      ],
+      "inner_width": 0.136635,
+      "optface_[lo,hi]": [
+        0.213333,
+        0.582418
+      ],
+      "optface_width": 0.369085,
+      "optface_strictly_wider": true
+    }
+  ]
+}

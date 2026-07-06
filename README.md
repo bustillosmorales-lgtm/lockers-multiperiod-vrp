@@ -39,6 +39,7 @@ q1-extension/
 │   ├── voi_controlled.py             VoI controlled: exact joint vs exact myopic, capacity sweep -> voi_controlled.json
 │   ├── within_instance_rho.py        distance-only rho interval vs identified rho, same instances
 │   ├── benchmark_service.py          Section 6 rho tables recomputed under the service objective (identified)
+│   ├── optface_rho.py                Prop optface: exact rho range over the FULL cost-optimal set (MILP) vs single-routing inner bound
 │   ├── real_benchmark.py             Real-geography instances: OSM parcel-locker coords + OSMnx road distances
 │   ├── real_bench_run.py             rho non-identifiability + VoI on the real-geography benchmark -> results/real_benchmark.json
 │   ├── voi_regime.py                 VoI magnitude regime (capacity x horizon, exact, conditional stats) -> results/voi_regime.json
