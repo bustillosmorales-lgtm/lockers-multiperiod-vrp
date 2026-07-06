@@ -248,7 +248,34 @@ def fig_voi_magnitude():
     finish(ax2); save(fig, "voi_magnitude")
 
 
+# ---- 6. real-geography benchmark: rho non-identifiability persists on real streets
+def fig_real_benchmark():
+    d = load("real_benchmark.json")
+    rows = sorted(d["rows"], key=lambda r: r["rho_width"])
+    widths = [r["rho_width"] for r in rows]
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(7.4, 3.0),
+                                   gridspec_kw={"width_ratios": [3, 2]})
+    # left: rho interval per instance (sorted by width), all non-degenerate
+    y = list(range(len(rows)))
+    for yi, r in zip(y, rows):
+        ax1.plot([r["rho_lo"], r["rho_hi"]], [yi, yi], "-", color=BLUE, lw=1.4)
+    ax1.plot([r["rho_lo"] for r in rows], y, ".", color=BLUE, ms=3)
+    ax1.plot([r["rho_hi"] for r in rows], y, ".", color=BLUE, ms=3)
+    ax1.axvspan(0, 0, color=GRAY)  # no-op keep axes
+    ax1.set_xlabel(r"identified set of $\rho$ (real instances)")
+    ax1.set_ylabel("instance (sorted by width)")
+    ax1.set_xlim(0.28, 0.58); finish(ax1)
+    # right: width distribution vs the synthetic reference (~0.025)
+    ax2.hist(widths, bins=8, color=BLUE, edgecolor="white")
+    ax2.axvline(0.025, color=VERM, lw=2, ls="--")
+    ax2.text(0.03, ax2.get_ylim()[1] * 0.9, "synthetic\n$\\approx0.025$",
+             color=VERM, fontsize=8, va="top")
+    ax2.set_xlabel(r"interval width $\Delta\rho$")
+    ax2.set_ylabel("real instances")
+    finish(ax2); save(fig, "real_benchmark")
+
+
 if __name__ == "__main__":
     fig_nonident(); fig_rho_size(); fig_rho_scenario(); fig_voi_regime()
     fig_voi_scale(); fig_scaling(); fig_bound(); fig_rho_within()
-    fig_voi_controlled(); fig_voi_magnitude()
+    fig_voi_controlled(); fig_voi_magnitude(); fig_real_benchmark()

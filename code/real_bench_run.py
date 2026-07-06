@@ -20,9 +20,10 @@ import statistics as st
 import pulp
 
 import real_benchmark as RB
-import model_full as M
 import certify_rho as CR
 import voi as V
+import matheuristic as H
+import voi_scaled as VS
 
 PLACES = ["Piaseczno, Poland", "Pruszkow, Poland", "Legionowo, Poland"]
 SIZES = [8, 10, 12]
@@ -30,16 +31,26 @@ SEEDS = [0, 1, 2, 3]
 TAU = 2
 MU_SERVICE = 5
 CAP_FACTOR = 0.7      # binding-ish capacity, so both findings are exercised
-TL = 120
+
+# NOTE. The exact joint MILP is NOT used here: on these real, asymmetric,
+# large-integer-distance instances both CBC and HiGHS return time-limited
+# incumbents mislabelled "Optimal" (verified: the myopic routing, evaluated under
+# the coupled joint flow, is feasible at obj 613, yet both MILP solvers report an
+# "optimal" >= 650). We therefore measure both findings with the validated
+# matheuristic + EXACT flow LP, exactly as the paper's scaled VoI study does:
+#   - rho interval: fix a cost-minimising routing (matheuristic, mu=0), then
+#     min/max total returns over the flow polytope by two exact LPs (certify_rho);
+#   - VoI: myopic matheuristic, then warm-start the joint search from it, so
+#     VoI = obj_myopic - obj_joint >= 0 by construction.
 
 
-def rho_interval(inst):
-    """rho identified set at a distance-only optimal routing (fix routing, min/max R)."""
-    j = M.solve_joint(inst, mu=0, time_limit=TL)
-    if j["status"] not in ("Optimal",):
+def rho_interval(inst, seed=0):
+    """rho identified set at a distance-only cost-minimising routing: fix the routing,
+    then min/max total returns over the flow polytope (two exact LPs)."""
+    r = H.matheuristic(inst, 0, iters=400, seed=seed)     # routing only, distance-only
+    if not r["feasible"]:
         return None
-    routes = {t: [[i, j2] for (i, j2) in j["per_period"][t]["used_arcs"]] for t in inst["T"]}
-    ci = dict(inst); ci["K"] = list(range(1, inst["n"] + 1)); ci["routes"] = routes
+    ci = dict(inst); ci["K"] = list(range(1, inst["n"] + 1)); ci["routes"] = r["routes"]
     lo = CR.solve_extreme(ci, pulp.LpMinimize)   # min returns -> max delivery
     hi = CR.solve_extreme(ci, pulp.LpMaximize)   # max returns -> min delivery
     if lo["status"] != "Optimal" or hi["status"] != "Optimal":
@@ -49,26 +60,15 @@ def rho_interval(inst):
             "R_lo": lo["total_returned_R"], "R_hi": hi["total_returned_R"]}
 
 
-def myopic_exact(inst, mu):
-    K = list(range(1, inst["n"] + 1)); prev = {k: 0 for k in K}; total = 0.0
-    for t in inst["T"]:
-        disp = {k: inst["g"][t][k] + prev[k] for k in K}
-        res = M.solve_single(inst, t, disp, mu, time_limit=TL)
-        if res["status"] != "Optimal":
-            return None
-        total += res["distance"] + mu * res["R"]; prev = res["returns"]
-    return total
-
-
-def voi(inst, mu):
-    om = myopic_exact(inst, mu)
+def voi(inst, mu, seed=0):
+    om, myopic_routes = VS.myopic_matheuristic(inst, mu, seed)
     if om is None:
         return None
-    j = M.solve_joint(inst, mu, time_limit=TL, solver="highs")
-    jo = j.get("objective")
-    if jo is None or jo > om + 1e-6:
+    j = H.matheuristic(inst, mu, iters=600, seed=seed, init_routes=myopic_routes)
+    if not j["feasible"]:
         return None
-    return {"VoI": round(om - jo, 2), "VoI_pct": round(100 * (om - jo) / om, 2) if om else 0.0}
+    v = max(0.0, om - j["objective"])
+    return {"VoI": round(v, 2), "VoI_pct": round(100 * v / om, 2) if om else 0.0}
 
 
 def main():
@@ -82,8 +82,8 @@ def main():
                     print(f"skip {place} n={n} s={seed}: {type(e).__name__} {e}")
                     continue
                 inst["Q"] = max(10, int(CAP_FACTOR * V.total_flow(inst)))
-                ri = rho_interval(inst)
-                vi = voi(inst, MU_SERVICE)
+                ri = rho_interval(inst, seed)
+                vi = voi(inst, MU_SERVICE, seed)
                 if ri is None:
                     continue
                 row = {"place": place.split(",")[0], "n": n, "seed": seed,
