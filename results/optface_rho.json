@@ -7,19 +7,19 @@
     "max_optface_width": 0.3691,
     "example_wider": {
       "n": 5,
-      "seed": 0,
+      "seed": 11,
       "Q": 40,
-      "z_star": 320,
+      "z_star": 352,
       "inner_bound_[lo,hi]": [
-        0.280488,
-        0.524752
+        0.445783,
+        0.582418
       ],
-      "inner_width": 0.244264,
+      "inner_width": 0.136635,
       "optface_[lo,hi]": [
-        0.268293,
-        0.524752
+        0.213333,
+        0.582418
       ],
-      "optface_width": 0.256459,
+      "optface_width": 0.369085,
       "optface_strictly_wider": true
     }
   },

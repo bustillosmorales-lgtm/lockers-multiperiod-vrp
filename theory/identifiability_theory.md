@@ -189,7 +189,7 @@ $\rho$ at its minimum-recirculation value without changing routing cost.
   solver returns one arbitrarily --- is classical (alternative optima, degeneracy).
   The contribution is **not** that fact but: the **identifiability lens on reported
   operational indicators**; the **separation of the tractable part (fixed design: two
-  LPs) from the hard part (the identified set over the mixed-integer optimal face, a
+  LPs) from the hard part (the identified set over the mixed-integer cost-optimal set, a
   MILP)** (Prop. 1b); the **two-LP checkable test / certified inner bound**; and the
   **lexicographic-vs-penalized repair dichotomy** — stated for the routing-with-recourse
   class and instantiated on a real model. It is a framing + structure/complexity

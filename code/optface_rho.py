@@ -117,12 +117,14 @@ def main():
                   f"optface {r['optface_[lo,hi]']} (w={r['optface_width']})  "
                   f"wider={r['optface_strictly_wider']}", flush=True)
     wider = [r for r in rows if r["optface_strictly_wider"]]
+    # the headline example is the LARGEST widening (optface_width - inner_width)
+    example = max(rows, key=lambda r: r["optface_width"] - r["inner_width"]) if rows else None
     summary = {
         "n_instances": len(rows),
         "n_optface_wider_than_inner": len(wider),
         "max_inner_width": round(max((r["inner_width"] for r in rows), default=0), 4),
         "max_optface_width": round(max((r["optface_width"] for r in rows), default=0), 4),
-        "example_wider": wider[0] if wider else None,
+        "example_wider": example,
     }
     outdir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "results"))
     with open(os.path.join(outdir, "optface_rho.json"), "w") as f:
