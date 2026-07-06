@@ -11,6 +11,11 @@
       0.520101,
       0.545226
     ],
+    "rho_identified_set_direct_[rho_min,rho_max]": [
+      0.520101,
+      0.545226
+    ],
+    "rho_direct_matches_R_extremes": true,
     "rho_width": 0.025125,
     "paper_reported_total_delivery": 181,
     "paper_sits_at": "Y_min (paper reports the LEAST same-day delivery / MOST recirculation)",
@@ -71,6 +76,11 @@
       0.341906,
       0.35994
     ],
+    "rho_identified_set_direct_[rho_min,rho_max]": [
+      0.341906,
+      0.35994
+    ],
+    "rho_direct_matches_R_extremes": true,
     "rho_width": 0.018034,
     "paper_reported_total_delivery": 435,
     "paper_sits_at": "Y_max (paper reports the MOST same-day delivery / LEAST recirculation)",

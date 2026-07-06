@@ -98,9 +98,77 @@ def solve_extreme(inst, sense):
             "y_by_period": y_by_period}
 
 
+def solve_rho_extreme(inst, maximize, iters=40, tol=1e-9):
+    """Exact min/max of rho = R/(Y+R) over the flow polytope at fixed routing, by
+    Dinkelbach's method (a short sequence of parametric LPs). This proves the
+    rho-interval DIRECTLY -- rho is linear-fractional, so minimizing/maximizing the
+    linear R need not give the rho-extremes in general; here it happens to coincide,
+    and this routine confirms it independently of that coincidence."""
+    K, T, p, g, Q, H, routes = (inst["K"], inst["T"], inst["p"], inst["g"],
+                                inst["Q"], inst["H"], inst["routes"])
+    V = [0] + K
+    arcs = {t: route_arcs(routes[t]) for t in T}
+    dout = {t: {i: [j for (ii, j) in arcs[t] if ii == i] for i in V} for t in T}
+    din = {t: {i: [j for (j, ii) in arcs[t] if ii == i] for i in V} for t in T}
+    lam = 0.0
+    Rv = Yv = 0.0
+    for _ in range(iters):
+        sense = pulp.LpMaximize if maximize else pulp.LpMinimize
+        prob = pulp.LpProblem("rho_dinkelbach", sense)
+        z = {t: {(i, j): {k: pulp.LpVariable(f"z_{t}_{i}_{j}_{k}", lowBound=0)
+                          for k in K} for (i, j) in arcs[t]} for t in T}
+        y = {t: {k: pulp.LpVariable(f"y_{t}_{k}", lowBound=0) for k in K} for t in T}
+
+        def ret(t, k):
+            return pulp.lpSum(z[t][(i, 0)][k] for i in din[t][0])
+
+        def disp(t, k):
+            return pulp.lpSum(z[t][(0, j)][k] for j in dout[t][0])
+
+        R = pulp.lpSum(ret(t, k) for t in T for k in K)
+        Ytot = pulp.lpSum(y[t][k] for t in T for k in K)
+        prob += R - lam * (Ytot + R)                 # Dinkelbach parametric objective
+        for t in T:
+            for k in K:  # (5)
+                inflow = pulp.lpSum(z[t][(i, k)][k] for i in din[t][k])
+                outflow = pulp.lpSum(z[t][(k, j)][k] for j in dout[t][k])
+                prob += (inflow - outflow == y[t][k])
+            for j in K:  # (6)
+                for k in K:
+                    if j == k:
+                        continue
+                    out_jk = pulp.lpSum(z[t][(j, i)][k] for i in dout[t][j])
+                    in_jk = pulp.lpSum(z[t][(i, j)][k] for i in din[t][j])
+                    prob += (out_jk - in_jk == p[t][j][k])
+            for (i, j) in arcs[t]:  # (7)
+                prob += (pulp.lpSum(z[t][(i, j)][k] for k in K) <= Q)
+            for k in K:  # (8)
+                prob += (y[t][k] <= H)
+            for k in K:  # (11)
+                prob += (y[t][k] >= disp(t, k))
+        for k in K:  # (9)
+            prob += (disp(T[0], k) == g[T[0]][k])
+        for idx in range(1, len(T)):  # (10)
+            t, tp = T[idx], T[idx - 1]
+            for k in K:
+                prob += (disp(t, k) == g[t][k] + ret(tp, k))
+        prob.solve(pulp.PULP_CBC_CMD(msg=0))
+        Rv = sum(ret(t, k).value() for t in T for k in K)
+        Yv = sum(y[t][k].value() for t in T for k in K)
+        new_lam = Rv / (Yv + Rv) if (Yv + Rv) > 0 else 0.0
+        if abs(new_lam - lam) < tol:
+            lam = new_lam
+            break
+        lam = new_lam
+    return round(lam, 6)
+
+
 def certify(inst):
     lo = solve_extreme(inst, pulp.LpMinimize)   # min returns -> max delivery
     hi = solve_extreme(inst, pulp.LpMaximize)   # max returns -> min delivery
+    # Independent proof of the rho-interval by direct linear-fractional optimization
+    rho_lo_direct = solve_rho_extreme(inst, maximize=False)
+    rho_hi_direct = solve_rho_extreme(inst, maximize=True)
     Y_max, Y_min = lo["total_delivered_Y"], hi["total_delivered_Y"]
     rho_min, rho_max = lo["rho"], hi["rho"]
     rep = inst["paper_reported_total_delivery"]
@@ -114,6 +182,9 @@ def certify(inst):
         "routing": "fixed to the paper's published optimal routes",
         "delivery_interval_[Ymin,Ymax]": [Y_min, Y_max],
         "rho_identified_set_[rho_min,rho_max]": [rho_min, rho_max],
+        "rho_identified_set_direct_[rho_min,rho_max]": [rho_lo_direct, rho_hi_direct],
+        "rho_direct_matches_R_extremes": (abs(rho_lo_direct - rho_min) < 1e-4
+                                          and abs(rho_hi_direct - rho_max) < 1e-4),
         "rho_width": round(rho_max - rho_min, 6),
         "paper_reported_total_delivery": rep,
         "paper_sits_at": where,

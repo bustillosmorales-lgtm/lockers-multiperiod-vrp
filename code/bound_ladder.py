@@ -7,6 +7,7 @@ gap to it for LP relaxation, +subtour cuts, +column-generation (root),
 
 Run:  python bound_ladder.py
 """
+import time
 import json
 import os
 
@@ -28,8 +29,11 @@ def main():
     for n, seed in CASES:
         Q = max(30, int(1.2 * V.total_flow(V.make_instance(n, 2, seed, Q=999))))
         inst = V.make_instance(n, 2, seed, Q); inst["C"] = 3
-        ex = M.solve_joint(inst, MU, time_limit=90)
-        proven = ex["status"] == "Optimal"
+        TL = 90
+        t0 = time.time(); ex = M.solve_joint(inst, MU, time_limit=TL); t_ex = time.time() - t0
+        # CBC labels time-limited incumbents "Optimal"; only trust it if the solve
+        # finished comfortably inside the cap.
+        proven = ex["status"] == "Optimal" and t_ex < 0.9 * TL
         exo = ex["objective"]
         lp = M.lower_bound(inst, MU, time_limit=30)
         cuts = BC.lower_bound_cuts(inst, MU, max_rounds=20, time_limit=20)
