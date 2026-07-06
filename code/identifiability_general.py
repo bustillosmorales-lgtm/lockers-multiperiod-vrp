@@ -57,7 +57,7 @@ def _base(prob, inst, relax_open, relax_y=True):
         prob += pulp.lpSum(y[(i, j)] for i in range(n)) <= cap[j] * open_[j]  # capacity + linking
     cost = (pulp.lpSum(inst["o"][j] * open_[j] for j in range(m))
             + pulp.lpSum(c[i][j] * y[(i, j)] for i in range(n) for j in range(m)))
-    load1 = pulp.lpSum(y[(i, 0)] for i in range(n))                    # reported KPI g
+    load1 = pulp.lpSum(y[(i, 0)] for i in range(n))   # reported KPI g = load of facility "1" (index 0)
     return open_, y, cost, load1
 
 
