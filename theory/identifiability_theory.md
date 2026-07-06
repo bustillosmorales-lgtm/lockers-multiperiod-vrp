@@ -81,6 +81,32 @@ $x^\star$ (e.g. one returned by a solver) and solve two LPs. If they disagree, $
 is not identified and the gap is a *lower bound* on the width of the identified set
 (the true set, over all optimal designs, can only be wider).
 
+> **Proposition 1b (the identified set over a mixed-integer optimal face).**
+> When the design variables $x$ are (partly) integer — as the routing variables of a
+> VRP are — the cost-optimal designs $X^\star$ do **not** form the optimal face of a
+> single LP; they are a mixed-integer set, and
+> $g(\mathcal S^\star)=\{g(x,f):x\in X^\star,\ f\in F(x)\}$ is the image of $g$ over a
+> *union* of recourse polytopes, one per optimal integer design. (i) The two-LP
+> interval of Proposition 1 at a fixed $x^\star$ is contained in $g(\mathcal S^\star)$,
+> with equality iff the $g$-range is invariant across $X^\star$; in general it is a
+> conservative inner bound. (ii) The exact endpoints solve
+> $\min/\max\{g(x,f):(x,f)\in P,\ c(x)=z^\star\}$ over the optimal face — a
+> *mixed-integer* program for integer $x$. So computing the exact identified set, and
+> deciding identification over all optimal designs, is at least as hard as optimizing
+> over the optimal face of the design model, whereas the fixed-design test is two LPs.
+
+*Proof.* $\mathcal S^\star=\bigcup_{x^\star\in X^\star}\{x^\star\}\times F(x^\star)$
+by definition. (i) The interval is $g$ over one fibre, hence a subset; equality holds
+iff no other optimal design widens the range. (ii) The endpoints optimize $g$ subject
+to $c(x)=z^\star$; with $x$ integer this is a MILP, and fixing $x=x^\star$ drops
+integrality to the two LPs. $\square$
+
+This is the honest separation behind the framing: the *fixed-design* half is the
+classical alternative-optima fact (two LPs, polynomial); the *identified set over the
+mixed-integer optimal face* is the new, hard object, for which the two LPs are only a
+certified inner bound. The locker certificate reports the fixed-routing inner bound
+(exact when the optimal routing is unique).
+
 > **Proposition 2 (sufficient condition via free recourse).**
 > Suppose the objective is a function of $x$ alone. If there exist $x^\star\in
 > X^\star$ and $f_1,f_2\in F(x^\star)$ with $g(x^\star,f_1)\ne g(x^\star,f_2)$,
@@ -152,13 +178,15 @@ $\rho$ at its minimum-recirculation value without changing routing cost.
 
 ## 5. Scope and honesty
 
-- The underlying fact --- optimal solutions need not be unique, and a solver returns
-  one arbitrarily --- is classical (alternative optima, degeneracy). The
-  contribution here is the **identifiability lens on reported operational
-  indicators**, the **two-LP checkable test and identified set**, and the
-  **lexicographic-vs-penalized repair dichotomy**, stated for the routing-with-recourse
-  class and instantiated on a real model. It is a framing/diagnostic contribution,
-  not new polyhedral theory.
+- The underlying *fixed-design* fact --- optimal solutions need not be unique, and a
+  solver returns one arbitrarily --- is classical (alternative optima, degeneracy).
+  The contribution is **not** that fact but: the **identifiability lens on reported
+  operational indicators**; the **separation of the tractable part (fixed design: two
+  LPs) from the hard part (the identified set over the mixed-integer optimal face, a
+  MILP)** (Prop. 1b); the **two-LP checkable test / certified inner bound**; and the
+  **lexicographic-vs-penalized repair dichotomy** — stated for the routing-with-recourse
+  class and instantiated on a real model. It is a framing + structure/complexity
+  contribution, not new polyhedral theory.
 - Proposition 1's identified set is exact for a fixed optimal design and a lower
   bound over all optimal designs (computing the exact set over $X^\star$ is as hard
   as optimizing $g$ subject to $c=z^\star$).
