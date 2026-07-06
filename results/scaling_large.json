@@ -1,0 +1,34 @@
+{
+  "mu": 5,
+  "tau": 2,
+  "rows": [
+    {
+      "n": 40,
+      "heur_obj": 12818,
+      "heur_time_s": 16.5,
+      "highs_obj": 17784.0,
+      "highs_time_s": 304.6
+    },
+    {
+      "n": 50,
+      "heur_obj": 19270,
+      "heur_time_s": 25.4,
+      "highs_obj": null,
+      "highs_time_s": 308.8
+    },
+    {
+      "n": 75,
+      "heur_obj": 42613,
+      "heur_time_s": 56.4,
+      "highs_obj": null,
+      "highs_time_s": null
+    },
+    {
+      "n": 100,
+      "heur_obj": 76344,
+      "heur_time_s": 105.4,
+      "highs_obj": null,
+      "highs_time_s": null
+    }
+  ]
+}

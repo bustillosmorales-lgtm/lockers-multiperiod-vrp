@@ -1,0 +1,42 @@
+{
+  "mu": 5,
+  "tau": 2,
+  "by_size": {
+    "5": {
+      "rho_min_mean": 0.3719,
+      "rho_max_mean": 0.4709,
+      "rho_identified_mean": 0.3781,
+      "n_instances": 3
+    },
+    "8": {
+      "rho_min_mean": 0.336,
+      "rho_max_mean": 0.4631,
+      "rho_identified_mean": 0.3099,
+      "n_instances": 3
+    },
+    "10": {
+      "rho_min_mean": 0.3675,
+      "rho_max_mean": 0.4421,
+      "rho_identified_mean": 0.3452,
+      "n_instances": 3
+    },
+    "12": {
+      "rho_min_mean": 0.3713,
+      "rho_max_mean": 0.4421,
+      "rho_identified_mean": 0.3378,
+      "n_instances": 3
+    },
+    "15": {
+      "rho_min_mean": 0.4284,
+      "rho_max_mean": 0.5001,
+      "rho_identified_mean": 0.3802,
+      "n_instances": 3
+    },
+    "20": {
+      "rho_min_mean": 0.383,
+      "rho_max_mean": 0.4439,
+      "rho_identified_mean": 0.3726,
+      "n_instances": 3
+    }
+  }
+}

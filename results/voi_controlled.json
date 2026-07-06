@@ -1,0 +1,53 @@
+{
+  "mu": 5,
+  "tau": 3,
+  "sizes": [
+    5
+  ],
+  "seeds": 8,
+  "exact": true,
+  "by_capacity_factor": {
+    "0.4": {
+      "n_feasible": 3,
+      "frac_VoI_positive": 0.33,
+      "mean_VoI_pct": 0.31,
+      "median_VoI_pct": 0.0,
+      "max_VoI_pct": 0.94
+    },
+    "0.5": {
+      "n_feasible": 4,
+      "frac_VoI_positive": 1.0,
+      "mean_VoI_pct": 2.15,
+      "median_VoI_pct": 2.34,
+      "max_VoI_pct": 3.47
+    },
+    "0.6": {
+      "n_feasible": 7,
+      "frac_VoI_positive": 0.57,
+      "mean_VoI_pct": 1.39,
+      "median_VoI_pct": 0.09,
+      "max_VoI_pct": 4.6
+    },
+    "0.7": {
+      "n_feasible": 7,
+      "frac_VoI_positive": 0.29,
+      "mean_VoI_pct": 1.07,
+      "median_VoI_pct": 0.0,
+      "max_VoI_pct": 3.97
+    },
+    "0.85": {
+      "n_feasible": 8,
+      "frac_VoI_positive": 0.38,
+      "mean_VoI_pct": 1.52,
+      "median_VoI_pct": 0.0,
+      "max_VoI_pct": 5.78
+    },
+    "1.0": {
+      "n_feasible": 8,
+      "frac_VoI_positive": 0.0,
+      "mean_VoI_pct": 0.0,
+      "median_VoI_pct": 0.0,
+      "max_VoI_pct": 0.0
+    }
+  }
+}

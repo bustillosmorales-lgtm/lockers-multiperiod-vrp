@@ -1,0 +1,62 @@
+{
+  "mu": 5,
+  "tau": 2,
+  "exact_time_limit_s": 600,
+  "solver": "CBC",
+  "rows": [
+    {
+      "n": 5,
+      "heur_obj": 454,
+      "heur_time_s": 1.4,
+      "exact_obj": 454.0,
+      "exact_time_s": 3.5,
+      "exact_proven": true,
+      "heur_vs_exact_%": 0.0
+    },
+    {
+      "n": 8,
+      "heur_obj": 894,
+      "heur_time_s": 1.7,
+      "exact_obj": 910.0,
+      "exact_time_s": 600.7,
+      "exact_proven": false,
+      "heur_vs_exact_%": -1.8
+    },
+    {
+      "n": 10,
+      "heur_obj": 1182,
+      "heur_time_s": 1.9,
+      "exact_obj": 1204.0,
+      "exact_time_s": 600.7,
+      "exact_proven": false,
+      "heur_vs_exact_%": -1.8
+    },
+    {
+      "n": 12,
+      "heur_obj": 1605,
+      "heur_time_s": 2.2,
+      "exact_obj": 1855.0,
+      "exact_time_s": 600.8,
+      "exact_proven": false,
+      "heur_vs_exact_%": -13.5
+    },
+    {
+      "n": 15,
+      "heur_obj": 2213,
+      "heur_time_s": 2.8,
+      "exact_obj": 2760.0,
+      "exact_time_s": 601.0,
+      "exact_proven": false,
+      "heur_vs_exact_%": -19.8
+    },
+    {
+      "n": 20,
+      "heur_obj": 3682,
+      "heur_time_s": 4.2,
+      "exact_obj": 4493.0,
+      "exact_time_s": 610.5,
+      "exact_proven": false,
+      "heur_vs_exact_%": -18.1
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "mu": 5,
+  "tau": 2,
+  "exact_time_limit_s": 60,
+  "rows": [
+    {
+      "n": 5,
+      "Q": 49,
+      "heur_obj": 427,
+      "heur_time_s": 1.1,
+      "evals": 601,
+      "LB_lp": 313.6,
+      "exact_obj": 427.0,
+      "exact_time_s": 2.4,
+      "exact_proven": true,
+      "gap_to_proven_%": 0.0,
+      "heur_vs_incumbent_%": null
+    },
+    {
+      "n": 8,
+      "Q": 115,
+      "heur_obj": 737,
+      "heur_time_s": 1.3,
+      "evals": 601,
+      "LB_lp": 392.3696,
+      "exact_obj": 744.0,
+      "exact_time_s": 60.2,
+      "exact_proven": false,
+      "gap_to_proven_%": null,
+      "heur_vs_incumbent_%": -0.94
+    },
+    {
+      "n": 10,
+      "Q": 174,
+      "heur_obj": 1050,
+      "heur_time_s": 1.6,
+      "evals": 601,
+      "LB_lp": 437.3103,
+      "exact_obj": 1122.0,
+      "exact_time_s": 60.2,
+      "exact_proven": false,
+      "gap_to_proven_%": null,
+      "heur_vs_incumbent_%": -6.42
+    },
+    {
+      "n": 12,
+      "Q": 250,
+      "heur_obj": 1328,
+      "heur_time_s": 1.9,
+      "evals": 601,
+      "LB_lp": 375.3333,
+      "exact_obj": 1717.0,
+      "exact_time_s": 60.3,
+      "exact_proven": false,
+      "gap_to_proven_%": null,
+      "heur_vs_incumbent_%": -22.66
+    },
+    {
+      "n": 15,
+      "Q": 393,
+      "heur_obj": 1947,
+      "heur_time_s": 2.6,
+      "evals": 601,
+      "LB_lp": 401.7547,
+      "exact_obj": 2630.0,
+      "exact_time_s": 60.9,
+      "exact_proven": false,
+      "gap_to_proven_%": null,
+      "heur_vs_incumbent_%": -25.97
+    },
+    {
+      "n": 20,
+      "Q": 748,
+      "heur_obj": 3418,
+      "heur_time_s": 3.4,
+      "evals": 601,
+      "LB_lp": 524.2134,
+      "exact_obj": null,
+      "exact_time_s": null,
+      "exact_proven": null,
+      "gap_to_proven_%": null,
+      "heur_vs_incumbent_%": null
+    },
+    {
+      "n": 25,
+      "Q": 1175,
+      "heur_obj": 5183,
+      "heur_time_s": 4.9,
+      "evals": 601,
+      "LB_lp": 918.3515,
+      "exact_obj": null,
+      "exact_time_s": null,
+      "exact_proven": null,
+      "gap_to_proven_%": null,
+      "heur_vs_incumbent_%": null
+    }
+  ]
+}

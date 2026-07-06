@@ -1,0 +1,37 @@
+{
+  "mu": 5,
+  "tau": 3,
+  "seeds": 6,
+  "summary": {
+    "n8": {
+      "instances": 6,
+      "frac_VoI_positive": 1.0,
+      "mean_VoI_pct": 2.57,
+      "max_VoI_pct": 8.62
+    },
+    "n10": {
+      "instances": 6,
+      "frac_VoI_positive": 0.33,
+      "mean_VoI_pct": 0.32,
+      "max_VoI_pct": 1.64
+    },
+    "n12": {
+      "instances": 6,
+      "frac_VoI_positive": 0.67,
+      "mean_VoI_pct": 1.32,
+      "max_VoI_pct": 3.77
+    },
+    "n15": {
+      "instances": 6,
+      "frac_VoI_positive": 0.5,
+      "mean_VoI_pct": 0.28,
+      "max_VoI_pct": 1.25
+    },
+    "n20": {
+      "instances": 6,
+      "frac_VoI_positive": 0.33,
+      "mean_VoI_pct": 0.27,
+      "max_VoI_pct": 1.14
+    }
+  }
+}

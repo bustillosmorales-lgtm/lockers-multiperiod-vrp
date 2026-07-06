@@ -1,0 +1,134 @@
+{
+  "tau2": [
+    {
+      "seed": 0,
+      "VoI": 0,
+      "VoI_pct": 0.0,
+      "R_joint": 22,
+      "R_myopic": 22,
+      "joint_status": "Optimal"
+    },
+    {
+      "seed": 1,
+      "VoI": 3,
+      "VoI_pct": 0.43,
+      "R_joint": 19,
+      "R_myopic": 26,
+      "joint_status": "Optimal"
+    },
+    {
+      "seed": 2,
+      "VoI": 29,
+      "VoI_pct": 3.75,
+      "R_joint": 46,
+      "R_myopic": 50,
+      "joint_status": "Optimal"
+    },
+    {
+      "seed": 3,
+      "VoI": 0,
+      "VoI_pct": 0.0,
+      "R_joint": 29,
+      "R_myopic": 29,
+      "joint_status": "Optimal"
+    },
+    {
+      "seed": 4,
+      "VoI": 0,
+      "VoI_pct": 0.0,
+      "R_joint": 32,
+      "R_myopic": 32,
+      "joint_status": "Optimal"
+    },
+    {
+      "seed": 5,
+      "VoI": 0,
+      "VoI_pct": 0.0,
+      "R_joint": 23,
+      "R_myopic": 25,
+      "joint_status": "Optimal"
+    },
+    {
+      "seed": 6,
+      "VoI": 0,
+      "VoI_pct": 0.0,
+      "R_joint": 23,
+      "R_myopic": 23,
+      "joint_status": "Optimal"
+    },
+    {
+      "seed": 7,
+      "VoI": 0,
+      "VoI_pct": 0.0,
+      "R_joint": 26,
+      "R_myopic": 26,
+      "joint_status": "Optimal"
+    }
+  ],
+  "tau3": [
+    {
+      "seed": 0,
+      "VoI": 3,
+      "VoI_pct": 0.45,
+      "R_joint": 33,
+      "R_myopic": 37,
+      "joint_status": "Optimal"
+    },
+    {
+      "seed": 1,
+      "VoI": 0,
+      "VoI_pct": 0.0,
+      "R_joint": 35,
+      "R_myopic": 35,
+      "joint_status": "Optimal"
+    },
+    {
+      "seed": 2,
+      "VoI": 22,
+      "VoI_pct": 1.85,
+      "R_joint": 72,
+      "R_myopic": 76,
+      "joint_status": "Optimal"
+    },
+    {
+      "seed": 3,
+      "VoI": 35,
+      "VoI_pct": 3.94,
+      "R_joint": 45,
+      "R_myopic": 46,
+      "joint_status": "Optimal"
+    },
+    {
+      "seed": 4,
+      "VoI": 15,
+      "VoI_pct": 1.39,
+      "R_joint": 53,
+      "R_myopic": 61,
+      "joint_status": "Optimal"
+    },
+    {
+      "seed": 5,
+      "VoI": 15,
+      "VoI_pct": 1.73,
+      "R_joint": 36,
+      "R_myopic": 39,
+      "joint_status": "Optimal"
+    },
+    {
+      "seed": 6,
+      "VoI": 38,
+      "VoI_pct": 4.3,
+      "R_joint": 37,
+      "R_myopic": 51,
+      "joint_status": "Optimal"
+    },
+    {
+      "seed": 7,
+      "VoI": 45,
+      "VoI_pct": 6.14,
+      "R_joint": 38,
+      "R_myopic": 47,
+      "joint_status": "Optimal"
+    }
+  ]
+}

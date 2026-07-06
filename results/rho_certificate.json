@@ -1,0 +1,162 @@
+[
+  {
+    "instance": "small_5lockers_tau2",
+    "lockers": 5,
+    "routing": "fixed to the paper's published optimal routes",
+    "delivery_interval_[Ymin,Ymax]": [
+      181,
+      191
+    ],
+    "rho_identified_set_[rho_min,rho_max]": [
+      0.520101,
+      0.545226
+    ],
+    "rho_width": 0.025125,
+    "paper_reported_total_delivery": 181,
+    "paper_sits_at": "Y_min (paper reports the LEAST same-day delivery / MOST recirculation)",
+    "extreme_min_returns": {
+      "status": "Optimal",
+      "total_delivered_Y": 191,
+      "total_returned_R": 207,
+      "rho": 0.520101,
+      "y_by_period": {
+        "1": [
+          15,
+          12,
+          7,
+          16,
+          2
+        ],
+        "2": [
+          32,
+          26,
+          26,
+          23,
+          32
+        ]
+      }
+    },
+    "extreme_max_returns": {
+      "status": "Optimal",
+      "total_delivered_Y": 181,
+      "total_returned_R": 217,
+      "rho": 0.545226,
+      "y_by_period": {
+        "1": [
+          15,
+          12,
+          7,
+          16,
+          2
+        ],
+        "2": [
+          28,
+          26,
+          26,
+          17,
+          32
+        ]
+      }
+    }
+  },
+  {
+    "instance": "kandoo_15lockers_tau2",
+    "lockers": 15,
+    "routing": "fixed to the paper's published optimal routes",
+    "delivery_interval_[Ymin,Ymax]": [
+      425,
+      435
+    ],
+    "rho_identified_set_[rho_min,rho_max]": [
+      0.341906,
+      0.35994
+    ],
+    "rho_width": 0.018034,
+    "paper_reported_total_delivery": 435,
+    "paper_sits_at": "Y_max (paper reports the MOST same-day delivery / LEAST recirculation)",
+    "extreme_min_returns": {
+      "status": "Optimal",
+      "total_delivered_Y": 435,
+      "total_returned_R": 226,
+      "rho": 0.341906,
+      "y_by_period": {
+        "1": [
+          23,
+          12,
+          13,
+          6,
+          7,
+          6,
+          21,
+          17,
+          17,
+          12,
+          12,
+          14,
+          21,
+          8,
+          15
+        ],
+        "2": [
+          20,
+          20,
+          14,
+          12,
+          21,
+          7,
+          16,
+          16,
+          19,
+          12,
+          18,
+          12,
+          20,
+          9,
+          15
+        ]
+      }
+    },
+    "extreme_max_returns": {
+      "status": "Optimal",
+      "total_delivered_Y": 425,
+      "total_returned_R": 239,
+      "rho": 0.35994,
+      "y_by_period": {
+        "1": [
+          20,
+          12,
+          13,
+          6,
+          7,
+          6,
+          21,
+          17,
+          17,
+          12,
+          12,
+          14,
+          21,
+          8,
+          15
+        ],
+        "2": [
+          23,
+          20,
+          14,
+          12,
+          21,
+          7,
+          9,
+          16,
+          19,
+          12,
+          18,
+          12,
+          20,
+          9,
+          12
+        ]
+      }
+    }
+  }
+]

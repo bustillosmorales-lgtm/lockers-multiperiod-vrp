@@ -1,0 +1,72 @@
+{
+  "mu": 5,
+  "range_gap_LP": [
+    17.4,
+    47.6
+  ],
+  "range_gap_CG_alone": [
+    16.0,
+    40.8
+  ],
+  "range_gap_CG_3cycle": [
+    2.3,
+    11.6
+  ],
+  "rows": [
+    {
+      "n": 5,
+      "seed": 1,
+      "exact": 657.0,
+      "exact_proven": true,
+      "gap_LP": 17.4,
+      "gap_cuts": 16.0,
+      "gap_CG": 16.0,
+      "gap_CG_2cycle": 4.6,
+      "gap_CG_3cycle": 2.3
+    },
+    {
+      "n": 5,
+      "seed": 0,
+      "exact": 427.0,
+      "exact_proven": true,
+      "gap_LP": 26.6,
+      "gap_cuts": 25.1,
+      "gap_CG": 25.1,
+      "gap_CG_2cycle": 7.5,
+      "gap_CG_3cycle": 4.0
+    },
+    {
+      "n": 5,
+      "seed": 2,
+      "exact": 701.0,
+      "exact_proven": true,
+      "gap_LP": 34.3,
+      "gap_cuts": 25.8,
+      "gap_CG": 25.8,
+      "gap_CG_2cycle": 5.1,
+      "gap_CG_3cycle": 3.7
+    },
+    {
+      "n": 8,
+      "seed": 1,
+      "exact": 1017.0,
+      "exact_proven": true,
+      "gap_LP": 38.8,
+      "gap_cuts": 37.1,
+      "gap_CG": 37.1,
+      "gap_CG_2cycle": 14.9,
+      "gap_CG_3cycle": 11.0
+    },
+    {
+      "n": 8,
+      "seed": 2,
+      "exact": 952.0,
+      "exact_proven": true,
+      "gap_LP": 47.6,
+      "gap_cuts": 40.8,
+      "gap_CG": 40.8,
+      "gap_CG_2cycle": 18.2,
+      "gap_CG_3cycle": 11.6
+    }
+  ]
+}

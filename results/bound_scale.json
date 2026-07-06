@@ -1,0 +1,30 @@
+{
+  "mu": 5,
+  "pricer": "dp",
+  "rows": [
+    {
+      "n": 10,
+      "matheuristic_obj": 1325,
+      "matheuristic_time_s": 1.5,
+      "cg_lower_bound": 1197.0,
+      "cg_time_s": 10.8,
+      "gap_%": 9.7
+    },
+    {
+      "n": 12,
+      "matheuristic_obj": 1598,
+      "matheuristic_time_s": 1.9,
+      "cg_lower_bound": 1428.0108,
+      "cg_time_s": 28.5,
+      "gap_%": 10.6
+    },
+    {
+      "n": 15,
+      "matheuristic_obj": 2252,
+      "matheuristic_time_s": 2.3,
+      "cg_lower_bound": 1802.9444,
+      "cg_time_s": 214.3,
+      "gap_%": 19.9
+    }
+  ]
+}

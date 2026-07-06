@@ -1,0 +1,54 @@
+{
+  "config": {
+    "n": 5,
+    "tau": 2,
+    "seeds": 12,
+    "regimes": {
+      "loose": 60,
+      "tight": 22
+    },
+    "mus": [
+      0,
+      5
+    ],
+    "joint_time_limit_s": 25
+  },
+  "summary": {
+    "loose_mu0": {
+      "Q": 60,
+      "n_instances": 12,
+      "mean_VoI": 0,
+      "mean_VoI_pct": 0.0,
+      "max_VoI_pct": 0.0,
+      "frac_VoI_positive": 0.0,
+      "mean_R_reduction": -1.5
+    },
+    "loose_mu5": {
+      "Q": 60,
+      "n_instances": 12,
+      "mean_VoI": 0,
+      "mean_VoI_pct": 0.0,
+      "max_VoI_pct": 0.0,
+      "frac_VoI_positive": 0.0,
+      "mean_R_reduction": 0
+    },
+    "tight_mu0": {
+      "Q": 22,
+      "n_instances": 12,
+      "mean_VoI": 7,
+      "mean_VoI_pct": 1.76,
+      "max_VoI_pct": 7.85,
+      "frac_VoI_positive": 0.42,
+      "mean_R_reduction": 7.25
+    },
+    "tight_mu5": {
+      "Q": 22,
+      "n_instances": 12,
+      "mean_VoI": 9.08,
+      "mean_VoI_pct": 1.61,
+      "max_VoI_pct": 10.58,
+      "frac_VoI_positive": 0.33,
+      "mean_R_reduction": 2.58
+    }
+  }
+}

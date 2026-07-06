@@ -1,0 +1,9 @@
+n,heur_obj,heur_time_s,highs_obj,highs_time_s,highs_proven,highs_solved,heur_vs_highs_%
+5,454,1.5,454.0,1.6,True,True,0.0
+8,894,1.9,894.0,300.1,False,True,0.0
+10,1182,2.3,1176.0,300.1,False,True,0.5
+12,1605,2.8,1568.0,300.2,False,True,2.4
+15,2185,3.7,2131.0,300.5,False,True,2.5
+20,3565,6.1,3436.0,300.8,False,True,3.8
+25,5117,8.3,5110.0,301.1,False,True,0.1
+30,7364,11.0,10394.0,302.2,False,True,-29.2

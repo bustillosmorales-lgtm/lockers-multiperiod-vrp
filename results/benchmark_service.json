@@ -1,0 +1,86 @@
+{
+  "mu": 5,
+  "tau": 2,
+  "by_size": {
+    "5": {
+      "n_cells": 6,
+      "avg_obj": 613.5,
+      "avg_vehicles": 1.67,
+      "avg_rho": 0.3538
+    },
+    "8": {
+      "n_cells": 6,
+      "avg_obj": 979.2,
+      "avg_vehicles": 1.33,
+      "avg_rho": 0.3531
+    },
+    "10": {
+      "n_cells": 6,
+      "avg_obj": 1323.8,
+      "avg_vehicles": 1.17,
+      "avg_rho": 0.3907
+    },
+    "12": {
+      "n_cells": 5,
+      "avg_obj": 1678.8,
+      "avg_vehicles": 1.2,
+      "avg_rho": 0.3786
+    },
+    "15": {
+      "n_cells": 4,
+      "avg_obj": 2173.5,
+      "avg_vehicles": 1.25,
+      "avg_rho": 0.3996
+    },
+    "20": {
+      "n_cells": 1,
+      "avg_obj": 2552,
+      "avg_vehicles": 1,
+      "avg_rho": 0.3696
+    },
+    "25": {
+      "n_cells": 1,
+      "avg_obj": 3860,
+      "avg_vehicles": 1,
+      "avg_rho": 0.4
+    }
+  },
+  "by_scenario": {
+    "low demand": {
+      "n_cells": 7,
+      "avg_obj": 1686.3,
+      "avg_vehicles": 1,
+      "avg_rho": 0.3555
+    },
+    "base": {
+      "n_cells": 5,
+      "avg_obj": 1303.4,
+      "avg_vehicles": 1.2,
+      "avg_rho": 0.339
+    },
+    "high demand": {
+      "n_cells": 4,
+      "avg_obj": 1202.8,
+      "avg_vehicles": 1.25,
+      "avg_rho": 0.3464
+    },
+    "reduced fleet": {
+      "n_cells": 5,
+      "avg_obj": 1363.6,
+      "avg_vehicles": 1.2,
+      "avg_rho": 0.3593
+    },
+    "reduced vehicle capacity": {
+      "n_cells": 5,
+      "avg_obj": 1641,
+      "avg_vehicles": 2.2,
+      "avg_rho": 0.4682
+    },
+    "reduced locker capacity": {
+      "n_cells": 3,
+      "avg_obj": 948,
+      "avg_vehicles": 1,
+      "avg_rho": 0.3802
+    }
+  }
+}
