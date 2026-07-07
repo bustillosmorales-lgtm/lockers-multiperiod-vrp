@@ -35,19 +35,19 @@ def load_extreme(inst, zstar, j, maximize):
     return round(pulp.value(loadj), 4)
 
 
-def argmax_config(inst, zstar, favour):
-    """A cost-optimal solution that maximizes the load of facility `favour`; return the
-    per-facility load vector and the argmax facility. Shows which facility a solver that
-    happens to favour `favour` would report as busiest."""
-    prob = pulp.LpProblem("cfg", pulp.LpMaximize)
+def diff_config(inst, zstar, j, k, maximize):
+    """A cost-optimal solution and the value of load_j - load_k on it, at the extreme."""
+    sense = pulp.LpMaximize if maximize else pulp.LpMinimize
+    prob = pulp.LpProblem("diff", sense)
     open_, y, cost, _ = G._base(prob, inst, relax_open=False, relax_y=True)
-    prob += pulp.lpSum(y[(i, favour)] for i in range(inst["n"]))
+    diff = pulp.lpSum(y[(i, j)] - y[(i, k)] for i in range(inst["n"]))
+    prob += diff
     prob += cost == zstar
     prob.solve(pulp.PULP_CBC_CMD(msg=0))
     if pulp.LpStatus[prob.status] != "Optimal":
         return None
-    loads = [round(sum(y[(i, j)].value() for i in range(inst["n"])), 2) for j in range(inst["m"])]
-    return loads, max(range(inst["m"]), key=lambda j: loads[j])
+    loads = [round(sum(y[(i, jj)].value() for i in range(inst["n"])), 2) for jj in range(inst["m"])]
+    return round(pulp.value(diff), 4), loads
 
 
 def analyse(m, n, seed):
@@ -57,21 +57,26 @@ def analyse(m, n, seed):
         return None
     ranges = {j: [load_extreme(inst, zstar, j, False), load_extreme(inst, zstar, j, True)]
               for j in range(m)}
-    # a "busiest facility" flip exists if some facility j can be strictly above every
-    # other at one optimum yet another facility k can equal-or-exceed it at another.
-    busiest = set()
-    configs = {}
-    for favour in range(m):
-        res = argmax_config(inst, zstar, favour)
-        if res:
-            loads, am = res
-            busiest.add(am)
-            configs[favour] = {"loads": loads, "argmax_facility": am}
+    # STRICT ranking reversal: a pair (j,k) with load_j > load_k on one optimum and
+    # load_k > load_j on another (the range of load_j - load_k over the optimal set
+    # straddles 0). Then "is j busier than k" is not determined by the model.
+    reversal = None
+    for j in range(m):
+        for k in range(j + 1, m):
+            hi = diff_config(inst, zstar, j, k, True)
+            lo = diff_config(inst, zstar, j, k, False)
+            if hi is None or lo is None:
+                continue
+            if hi[0] > 1e-6 and lo[0] < -1e-6:      # j busier in one optimum, k in another
+                reversal = {"pair": [j, k],
+                            "loads_when_j_busier": hi[1], "loads_when_k_busier": lo[1]}
+                break
+        if reversal:
+            break
     return {"m": m, "n": n, "seed": seed, "z_star": zstar,
             "load_ranges": ranges,
-            "distinct_busiest_facilities_across_optima": sorted(busiest),
-            "decision_flips": len(busiest) > 1,
-            "example_configs": configs}
+            "strict_ranking_reversal": reversal,
+            "decision_flips": reversal is not None}
 
 
 def main():
@@ -81,9 +86,12 @@ def main():
         r = analyse(5, 14, seed)
         if r:
             rows.append(r)
-            tag = "  <-- BUSIEST-FACILITY FLIP" if r["decision_flips"] else ""
-            print(f"seed {seed}: busiest facilities over optima = "
-                  f"{r['distinct_busiest_facilities_across_optima']}{tag}", flush=True)
+            if r["decision_flips"]:
+                rv = r["strict_ranking_reversal"]
+                print(f"seed {seed}: STRICT REVERSAL pair {rv['pair']} -- "
+                      f"j-busier {rv['loads_when_j_busier']} vs k-busier {rv['loads_when_k_busier']}", flush=True)
+            else:
+                print(f"seed {seed}: no strict reversal", flush=True)
             if r["decision_flips"]:
                 flips.append(r)
     summary = {

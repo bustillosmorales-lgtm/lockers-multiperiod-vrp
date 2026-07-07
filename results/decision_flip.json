@@ -2,7 +2,7 @@
   "summary": {
     "model": "CFLP; decision = which facility is busiest (e.g. expand)",
     "n_instances": 24,
-    "n_with_decision_flip": 2,
+    "n_with_decision_flip": 4,
     "example": {
       "m": 5,
       "n": 14,
@@ -30,63 +30,27 @@
           0.0
         ]
       },
-      "distinct_busiest_facilities_across_optima": [
-        1,
-        2
-      ],
-      "decision_flips": true,
-      "example_configs": {
-        "0": {
-          "loads": [
-            3.0,
-            4.0,
-            5.0,
-            2.0,
-            0.0
-          ],
-          "argmax_facility": 2
-        },
-        "1": {
-          "loads": [
-            3.0,
-            4.0,
-            5.0,
-            2.0,
-            0.0
-          ],
-          "argmax_facility": 2
-        },
-        "2": {
-          "loads": [
-            3.0,
-            4.0,
-            5.0,
-            2.0,
-            0.0
-          ],
-          "argmax_facility": 2
-        },
-        "3": {
-          "loads": [
-            3.0,
-            4.0,
-            4.0,
-            3.0,
-            0.0
-          ],
-          "argmax_facility": 1
-        },
-        "4": {
-          "loads": [
-            3.0,
-            4.0,
-            5.0,
-            2.0,
-            0.0
-          ],
-          "argmax_facility": 2
-        }
-      }
+      "strict_ranking_reversal": {
+        "pair": [
+          0,
+          3
+        ],
+        "loads_when_j_busier": [
+          3.0,
+          4.0,
+          5.0,
+          2.0,
+          0.0
+        ],
+        "loads_when_k_busier": [
+          2.0,
+          4.0,
+          5.0,
+          3.0,
+          0.0
+        ]
+      },
+      "decision_flips": true
     }
   },
   "rows": [
@@ -117,63 +81,27 @@
           0.0
         ]
       },
-      "distinct_busiest_facilities_across_optima": [
-        1,
-        2
-      ],
-      "decision_flips": true,
-      "example_configs": {
-        "0": {
-          "loads": [
-            3.0,
-            4.0,
-            5.0,
-            2.0,
-            0.0
-          ],
-          "argmax_facility": 2
-        },
-        "1": {
-          "loads": [
-            3.0,
-            4.0,
-            5.0,
-            2.0,
-            0.0
-          ],
-          "argmax_facility": 2
-        },
-        "2": {
-          "loads": [
-            3.0,
-            4.0,
-            5.0,
-            2.0,
-            0.0
-          ],
-          "argmax_facility": 2
-        },
-        "3": {
-          "loads": [
-            3.0,
-            4.0,
-            4.0,
-            3.0,
-            0.0
-          ],
-          "argmax_facility": 1
-        },
-        "4": {
-          "loads": [
-            3.0,
-            4.0,
-            5.0,
-            2.0,
-            0.0
-          ],
-          "argmax_facility": 2
-        }
-      }
+      "strict_ranking_reversal": {
+        "pair": [
+          0,
+          3
+        ],
+        "loads_when_j_busier": [
+          3.0,
+          4.0,
+          5.0,
+          2.0,
+          0.0
+        ],
+        "loads_when_k_busier": [
+          2.0,
+          4.0,
+          5.0,
+          3.0,
+          0.0
+        ]
+      },
+      "decision_flips": true
     },
     {
       "m": 5,
@@ -202,62 +130,8 @@
           0.0
         ]
       },
-      "distinct_busiest_facilities_across_optima": [
-        1
-      ],
-      "decision_flips": false,
-      "example_configs": {
-        "0": {
-          "loads": [
-            2.0,
-            5.0,
-            3.0,
-            4.0,
-            0.0
-          ],
-          "argmax_facility": 1
-        },
-        "1": {
-          "loads": [
-            2.0,
-            5.0,
-            3.0,
-            4.0,
-            0.0
-          ],
-          "argmax_facility": 1
-        },
-        "2": {
-          "loads": [
-            2.0,
-            5.0,
-            3.0,
-            4.0,
-            0.0
-          ],
-          "argmax_facility": 1
-        },
-        "3": {
-          "loads": [
-            2.0,
-            5.0,
-            3.0,
-            4.0,
-            0.0
-          ],
-          "argmax_facility": 1
-        },
-        "4": {
-          "loads": [
-            2.0,
-            5.0,
-            3.0,
-            4.0,
-            0.0
-          ],
-          "argmax_facility": 1
-        }
-      }
+      "strict_ranking_reversal": null,
+      "decision_flips": false
     },
     {
       "m": 5,
@@ -286,62 +160,8 @@
           0.0
         ]
       },
-      "distinct_busiest_facilities_across_optima": [
-        3
-      ],
-      "decision_flips": false,
-      "example_configs": {
-        "0": {
-          "loads": [
-            4.0,
-            3.0,
-            2.0,
-            5.0,
-            0.0
-          ],
-          "argmax_facility": 3
-        },
-        "1": {
-          "loads": [
-            4.0,
-            3.0,
-            2.0,
-            5.0,
-            0.0
-          ],
-          "argmax_facility": 3
-        },
-        "2": {
-          "loads": [
-            4.0,
-            3.0,
-            2.0,
-            5.0,
-            0.0
-          ],
-          "argmax_facility": 3
-        },
-        "3": {
-          "loads": [
-            4.0,
-            3.0,
-            2.0,
-            5.0,
-            0.0
-          ],
-          "argmax_facility": 3
-        },
-        "4": {
-          "loads": [
-            4.0,
-            3.0,
-            2.0,
-            5.0,
-            0.0
-          ],
-          "argmax_facility": 3
-        }
-      }
+      "strict_ranking_reversal": null,
+      "decision_flips": false
     },
     {
       "m": 5,
@@ -370,62 +190,8 @@
           4.0
         ]
       },
-      "distinct_busiest_facilities_across_optima": [
-        1
-      ],
-      "decision_flips": false,
-      "example_configs": {
-        "0": {
-          "loads": [
-            0.0,
-            4.0,
-            3.0,
-            3.0,
-            4.0
-          ],
-          "argmax_facility": 1
-        },
-        "1": {
-          "loads": [
-            0.0,
-            4.0,
-            3.0,
-            3.0,
-            4.0
-          ],
-          "argmax_facility": 1
-        },
-        "2": {
-          "loads": [
-            0.0,
-            4.0,
-            3.0,
-            3.0,
-            4.0
-          ],
-          "argmax_facility": 1
-        },
-        "3": {
-          "loads": [
-            0.0,
-            4.0,
-            3.0,
-            3.0,
-            4.0
-          ],
-          "argmax_facility": 1
-        },
-        "4": {
-          "loads": [
-            0.0,
-            4.0,
-            3.0,
-            3.0,
-            4.0
-          ],
-          "argmax_facility": 1
-        }
-      }
+      "strict_ranking_reversal": null,
+      "decision_flips": false
     },
     {
       "m": 5,
@@ -454,62 +220,27 @@
           5.0
         ]
       },
-      "distinct_busiest_facilities_across_optima": [
-        1
-      ],
-      "decision_flips": false,
-      "example_configs": {
-        "0": {
-          "loads": [
-            3.0,
-            5.0,
-            2.0,
-            4.0,
-            0.0
-          ],
-          "argmax_facility": 1
-        },
-        "1": {
-          "loads": [
-            0.0,
-            5.0,
-            0.0,
-            4.0,
-            5.0
-          ],
-          "argmax_facility": 1
-        },
-        "2": {
-          "loads": [
-            0.0,
-            4.0,
-            3.0,
-            4.0,
-            3.0
-          ],
-          "argmax_facility": 1
-        },
-        "3": {
-          "loads": [
-            0.0,
-            5.0,
-            0.0,
-            4.0,
-            5.0
-          ],
-          "argmax_facility": 1
-        },
-        "4": {
-          "loads": [
-            0.0,
-            5.0,
-            0.0,
-            4.0,
-            5.0
-          ],
-          "argmax_facility": 1
-        }
-      }
+      "strict_ranking_reversal": {
+        "pair": [
+          0,
+          2
+        ],
+        "loads_when_j_busier": [
+          3.0,
+          5.0,
+          2.0,
+          4.0,
+          0.0
+        ],
+        "loads_when_k_busier": [
+          0.0,
+          4.0,
+          3.0,
+          4.0,
+          3.0
+        ]
+      },
+      "decision_flips": true
     },
     {
       "m": 5,
@@ -538,62 +269,8 @@
           3.0
         ]
       },
-      "distinct_busiest_facilities_across_optima": [
-        3
-      ],
-      "decision_flips": false,
-      "example_configs": {
-        "0": {
-          "loads": [
-            3.0,
-            0.0,
-            3.0,
-            5.0,
-            3.0
-          ],
-          "argmax_facility": 3
-        },
-        "1": {
-          "loads": [
-            3.0,
-            0.0,
-            3.0,
-            5.0,
-            3.0
-          ],
-          "argmax_facility": 3
-        },
-        "2": {
-          "loads": [
-            3.0,
-            0.0,
-            3.0,
-            5.0,
-            3.0
-          ],
-          "argmax_facility": 3
-        },
-        "3": {
-          "loads": [
-            3.0,
-            0.0,
-            3.0,
-            5.0,
-            3.0
-          ],
-          "argmax_facility": 3
-        },
-        "4": {
-          "loads": [
-            3.0,
-            0.0,
-            3.0,
-            5.0,
-            3.0
-          ],
-          "argmax_facility": 3
-        }
-      }
+      "strict_ranking_reversal": null,
+      "decision_flips": false
     },
     {
       "m": 5,
@@ -622,62 +299,8 @@
           4.0
         ]
       },
-      "distinct_busiest_facilities_across_optima": [
-        1
-      ],
-      "decision_flips": false,
-      "example_configs": {
-        "0": {
-          "loads": [
-            3.0,
-            4.0,
-            0.0,
-            3.0,
-            4.0
-          ],
-          "argmax_facility": 1
-        },
-        "1": {
-          "loads": [
-            3.0,
-            4.0,
-            0.0,
-            3.0,
-            4.0
-          ],
-          "argmax_facility": 1
-        },
-        "2": {
-          "loads": [
-            3.0,
-            4.0,
-            0.0,
-            3.0,
-            4.0
-          ],
-          "argmax_facility": 1
-        },
-        "3": {
-          "loads": [
-            3.0,
-            4.0,
-            0.0,
-            3.0,
-            4.0
-          ],
-          "argmax_facility": 1
-        },
-        "4": {
-          "loads": [
-            3.0,
-            4.0,
-            0.0,
-            3.0,
-            4.0
-          ],
-          "argmax_facility": 1
-        }
-      }
+      "strict_ranking_reversal": null,
+      "decision_flips": false
     },
     {
       "m": 5,
@@ -706,62 +329,8 @@
           5.0
         ]
       },
-      "distinct_busiest_facilities_across_optima": [
-        1
-      ],
-      "decision_flips": false,
-      "example_configs": {
-        "0": {
-          "loads": [
-            4.0,
-            5.0,
-            0.0,
-            0.0,
-            5.0
-          ],
-          "argmax_facility": 1
-        },
-        "1": {
-          "loads": [
-            4.0,
-            5.0,
-            0.0,
-            0.0,
-            5.0
-          ],
-          "argmax_facility": 1
-        },
-        "2": {
-          "loads": [
-            4.0,
-            5.0,
-            0.0,
-            0.0,
-            5.0
-          ],
-          "argmax_facility": 1
-        },
-        "3": {
-          "loads": [
-            4.0,
-            5.0,
-            0.0,
-            0.0,
-            5.0
-          ],
-          "argmax_facility": 1
-        },
-        "4": {
-          "loads": [
-            4.0,
-            5.0,
-            0.0,
-            0.0,
-            5.0
-          ],
-          "argmax_facility": 1
-        }
-      }
+      "strict_ranking_reversal": null,
+      "decision_flips": false
     },
     {
       "m": 5,
@@ -790,62 +359,8 @@
           0.0
         ]
       },
-      "distinct_busiest_facilities_across_optima": [
-        0
-      ],
-      "decision_flips": false,
-      "example_configs": {
-        "0": {
-          "loads": [
-            5.0,
-            3.0,
-            4.0,
-            2.0,
-            0.0
-          ],
-          "argmax_facility": 0
-        },
-        "1": {
-          "loads": [
-            5.0,
-            3.0,
-            4.0,
-            2.0,
-            0.0
-          ],
-          "argmax_facility": 0
-        },
-        "2": {
-          "loads": [
-            5.0,
-            3.0,
-            4.0,
-            2.0,
-            0.0
-          ],
-          "argmax_facility": 0
-        },
-        "3": {
-          "loads": [
-            5.0,
-            3.0,
-            4.0,
-            2.0,
-            0.0
-          ],
-          "argmax_facility": 0
-        },
-        "4": {
-          "loads": [
-            5.0,
-            3.0,
-            4.0,
-            2.0,
-            0.0
-          ],
-          "argmax_facility": 0
-        }
-      }
+      "strict_ranking_reversal": null,
+      "decision_flips": false
     },
     {
       "m": 5,
@@ -874,62 +389,8 @@
           0.0
         ]
       },
-      "distinct_busiest_facilities_across_optima": [
-        1
-      ],
-      "decision_flips": false,
-      "example_configs": {
-        "0": {
-          "loads": [
-            3.0,
-            4.0,
-            4.0,
-            3.0,
-            0.0
-          ],
-          "argmax_facility": 1
-        },
-        "1": {
-          "loads": [
-            3.0,
-            4.0,
-            4.0,
-            3.0,
-            0.0
-          ],
-          "argmax_facility": 1
-        },
-        "2": {
-          "loads": [
-            3.0,
-            4.0,
-            4.0,
-            3.0,
-            0.0
-          ],
-          "argmax_facility": 1
-        },
-        "3": {
-          "loads": [
-            3.0,
-            4.0,
-            4.0,
-            3.0,
-            0.0
-          ],
-          "argmax_facility": 1
-        },
-        "4": {
-          "loads": [
-            3.0,
-            4.0,
-            4.0,
-            3.0,
-            0.0
-          ],
-          "argmax_facility": 1
-        }
-      }
+      "strict_ranking_reversal": null,
+      "decision_flips": false
     },
     {
       "m": 5,
@@ -958,62 +419,27 @@
           3.0
         ]
       },
-      "distinct_busiest_facilities_across_optima": [
-        1
-      ],
-      "decision_flips": false,
-      "example_configs": {
-        "0": {
-          "loads": [
-            4.0,
-            5.0,
-            3.0,
-            0.0,
-            2.0
-          ],
-          "argmax_facility": 1
-        },
-        "1": {
-          "loads": [
-            3.0,
-            5.0,
-            0.0,
-            4.0,
-            2.0
-          ],
-          "argmax_facility": 1
-        },
-        "2": {
-          "loads": [
-            3.0,
-            5.0,
-            3.0,
-            0.0,
-            3.0
-          ],
-          "argmax_facility": 1
-        },
-        "3": {
-          "loads": [
-            3.0,
-            5.0,
-            0.0,
-            4.0,
-            2.0
-          ],
-          "argmax_facility": 1
-        },
-        "4": {
-          "loads": [
-            4.0,
-            5.0,
-            2.0,
-            0.0,
-            3.0
-          ],
-          "argmax_facility": 1
-        }
-      }
+      "strict_ranking_reversal": {
+        "pair": [
+          0,
+          3
+        ],
+        "loads_when_j_busier": [
+          4.0,
+          5.0,
+          2.0,
+          0.0,
+          3.0
+        ],
+        "loads_when_k_busier": [
+          3.0,
+          5.0,
+          0.0,
+          4.0,
+          2.0
+        ]
+      },
+      "decision_flips": true
     },
     {
       "m": 5,
@@ -1042,62 +468,8 @@
           0.0
         ]
       },
-      "distinct_busiest_facilities_across_optima": [
-        3
-      ],
-      "decision_flips": false,
-      "example_configs": {
-        "0": {
-          "loads": [
-            2.0,
-            3.0,
-            4.0,
-            5.0,
-            0.0
-          ],
-          "argmax_facility": 3
-        },
-        "1": {
-          "loads": [
-            2.0,
-            3.0,
-            4.0,
-            5.0,
-            0.0
-          ],
-          "argmax_facility": 3
-        },
-        "2": {
-          "loads": [
-            2.0,
-            3.0,
-            4.0,
-            5.0,
-            0.0
-          ],
-          "argmax_facility": 3
-        },
-        "3": {
-          "loads": [
-            2.0,
-            3.0,
-            4.0,
-            5.0,
-            0.0
-          ],
-          "argmax_facility": 3
-        },
-        "4": {
-          "loads": [
-            2.0,
-            3.0,
-            4.0,
-            5.0,
-            0.0
-          ],
-          "argmax_facility": 3
-        }
-      }
+      "strict_ranking_reversal": null,
+      "decision_flips": false
     },
     {
       "m": 5,
@@ -1126,62 +498,8 @@
           3.0
         ]
       },
-      "distinct_busiest_facilities_across_optima": [
-        2
-      ],
-      "decision_flips": false,
-      "example_configs": {
-        "0": {
-          "loads": [
-            0.0,
-            3.0,
-            5.0,
-            3.0,
-            3.0
-          ],
-          "argmax_facility": 2
-        },
-        "1": {
-          "loads": [
-            0.0,
-            3.0,
-            5.0,
-            3.0,
-            3.0
-          ],
-          "argmax_facility": 2
-        },
-        "2": {
-          "loads": [
-            0.0,
-            3.0,
-            5.0,
-            3.0,
-            3.0
-          ],
-          "argmax_facility": 2
-        },
-        "3": {
-          "loads": [
-            0.0,
-            3.0,
-            5.0,
-            3.0,
-            3.0
-          ],
-          "argmax_facility": 2
-        },
-        "4": {
-          "loads": [
-            0.0,
-            3.0,
-            5.0,
-            3.0,
-            3.0
-          ],
-          "argmax_facility": 2
-        }
-      }
+      "strict_ranking_reversal": null,
+      "decision_flips": false
     },
     {
       "m": 5,
@@ -1210,62 +528,8 @@
           5.0
         ]
       },
-      "distinct_busiest_facilities_across_optima": [
-        4
-      ],
-      "decision_flips": false,
-      "example_configs": {
-        "0": {
-          "loads": [
-            0.0,
-            2.0,
-            3.0,
-            4.0,
-            5.0
-          ],
-          "argmax_facility": 4
-        },
-        "1": {
-          "loads": [
-            0.0,
-            2.0,
-            3.0,
-            4.0,
-            5.0
-          ],
-          "argmax_facility": 4
-        },
-        "2": {
-          "loads": [
-            0.0,
-            2.0,
-            3.0,
-            4.0,
-            5.0
-          ],
-          "argmax_facility": 4
-        },
-        "3": {
-          "loads": [
-            0.0,
-            2.0,
-            3.0,
-            4.0,
-            5.0
-          ],
-          "argmax_facility": 4
-        },
-        "4": {
-          "loads": [
-            0.0,
-            2.0,
-            3.0,
-            4.0,
-            5.0
-          ],
-          "argmax_facility": 4
-        }
-      }
+      "strict_ranking_reversal": null,
+      "decision_flips": false
     },
     {
       "m": 5,
@@ -1294,62 +558,8 @@
           3.0
         ]
       },
-      "distinct_busiest_facilities_across_optima": [
-        0
-      ],
-      "decision_flips": false,
-      "example_configs": {
-        "0": {
-          "loads": [
-            5.0,
-            3.0,
-            3.0,
-            0.0,
-            3.0
-          ],
-          "argmax_facility": 0
-        },
-        "1": {
-          "loads": [
-            5.0,
-            3.0,
-            3.0,
-            0.0,
-            3.0
-          ],
-          "argmax_facility": 0
-        },
-        "2": {
-          "loads": [
-            5.0,
-            3.0,
-            3.0,
-            0.0,
-            3.0
-          ],
-          "argmax_facility": 0
-        },
-        "3": {
-          "loads": [
-            5.0,
-            3.0,
-            3.0,
-            0.0,
-            3.0
-          ],
-          "argmax_facility": 0
-        },
-        "4": {
-          "loads": [
-            5.0,
-            3.0,
-            3.0,
-            0.0,
-            3.0
-          ],
-          "argmax_facility": 0
-        }
-      }
+      "strict_ranking_reversal": null,
+      "decision_flips": false
     },
     {
       "m": 5,
@@ -1378,62 +588,8 @@
           4.0
         ]
       },
-      "distinct_busiest_facilities_across_optima": [
-        2
-      ],
-      "decision_flips": false,
-      "example_configs": {
-        "0": {
-          "loads": [
-            3.0,
-            0.0,
-            4.0,
-            3.0,
-            4.0
-          ],
-          "argmax_facility": 2
-        },
-        "1": {
-          "loads": [
-            3.0,
-            0.0,
-            4.0,
-            3.0,
-            4.0
-          ],
-          "argmax_facility": 2
-        },
-        "2": {
-          "loads": [
-            3.0,
-            0.0,
-            4.0,
-            3.0,
-            4.0
-          ],
-          "argmax_facility": 2
-        },
-        "3": {
-          "loads": [
-            3.0,
-            0.0,
-            4.0,
-            3.0,
-            4.0
-          ],
-          "argmax_facility": 2
-        },
-        "4": {
-          "loads": [
-            3.0,
-            0.0,
-            4.0,
-            3.0,
-            4.0
-          ],
-          "argmax_facility": 2
-        }
-      }
+      "strict_ranking_reversal": null,
+      "decision_flips": false
     },
     {
       "m": 5,
@@ -1462,62 +618,8 @@
           4.0
         ]
       },
-      "distinct_busiest_facilities_across_optima": [
-        0
-      ],
-      "decision_flips": false,
-      "example_configs": {
-        "0": {
-          "loads": [
-            4.0,
-            3.0,
-            0.0,
-            3.0,
-            4.0
-          ],
-          "argmax_facility": 0
-        },
-        "1": {
-          "loads": [
-            4.0,
-            3.0,
-            0.0,
-            3.0,
-            4.0
-          ],
-          "argmax_facility": 0
-        },
-        "2": {
-          "loads": [
-            4.0,
-            3.0,
-            0.0,
-            3.0,
-            4.0
-          ],
-          "argmax_facility": 0
-        },
-        "3": {
-          "loads": [
-            4.0,
-            3.0,
-            0.0,
-            3.0,
-            4.0
-          ],
-          "argmax_facility": 0
-        },
-        "4": {
-          "loads": [
-            4.0,
-            3.0,
-            0.0,
-            3.0,
-            4.0
-          ],
-          "argmax_facility": 0
-        }
-      }
+      "strict_ranking_reversal": null,
+      "decision_flips": false
     },
     {
       "m": 5,
@@ -1546,62 +648,8 @@
           3.0
         ]
       },
-      "distinct_busiest_facilities_across_optima": [
-        0
-      ],
-      "decision_flips": false,
-      "example_configs": {
-        "0": {
-          "loads": [
-            5.0,
-            3.0,
-            0.0,
-            3.0,
-            3.0
-          ],
-          "argmax_facility": 0
-        },
-        "1": {
-          "loads": [
-            5.0,
-            3.0,
-            0.0,
-            3.0,
-            3.0
-          ],
-          "argmax_facility": 0
-        },
-        "2": {
-          "loads": [
-            5.0,
-            3.0,
-            0.0,
-            3.0,
-            3.0
-          ],
-          "argmax_facility": 0
-        },
-        "3": {
-          "loads": [
-            5.0,
-            3.0,
-            0.0,
-            3.0,
-            3.0
-          ],
-          "argmax_facility": 0
-        },
-        "4": {
-          "loads": [
-            5.0,
-            3.0,
-            0.0,
-            3.0,
-            3.0
-          ],
-          "argmax_facility": 0
-        }
-      }
+      "strict_ranking_reversal": null,
+      "decision_flips": false
     },
     {
       "m": 5,
@@ -1630,63 +678,27 @@
           3.0
         ]
       },
-      "distinct_busiest_facilities_across_optima": [
-        1,
-        2
-      ],
-      "decision_flips": true,
-      "example_configs": {
-        "0": {
-          "loads": [
-            3.0,
-            4.0,
-            4.0,
-            0.0,
-            3.0
-          ],
-          "argmax_facility": 1
-        },
-        "1": {
-          "loads": [
-            0.0,
-            4.0,
-            5.0,
-            3.0,
-            2.0
-          ],
-          "argmax_facility": 2
-        },
-        "2": {
-          "loads": [
-            0.0,
-            4.0,
-            5.0,
-            3.0,
-            2.0
-          ],
-          "argmax_facility": 2
-        },
-        "3": {
-          "loads": [
-            0.0,
-            4.0,
-            5.0,
-            3.0,
-            2.0
-          ],
-          "argmax_facility": 2
-        },
-        "4": {
-          "loads": [
-            3.0,
-            4.0,
-            4.0,
-            0.0,
-            3.0
-          ],
-          "argmax_facility": 1
-        }
-      }
+      "strict_ranking_reversal": {
+        "pair": [
+          0,
+          3
+        ],
+        "loads_when_j_busier": [
+          3.0,
+          4.0,
+          4.0,
+          0.0,
+          3.0
+        ],
+        "loads_when_k_busier": [
+          0.0,
+          4.0,
+          5.0,
+          3.0,
+          2.0
+        ]
+      },
+      "decision_flips": true
     },
     {
       "m": 5,
@@ -1715,62 +727,8 @@
           2.0
         ]
       },
-      "distinct_busiest_facilities_across_optima": [
-        1
-      ],
-      "decision_flips": false,
-      "example_configs": {
-        "0": {
-          "loads": [
-            4.0,
-            5.0,
-            3.0,
-            0.0,
-            2.0
-          ],
-          "argmax_facility": 1
-        },
-        "1": {
-          "loads": [
-            4.0,
-            5.0,
-            3.0,
-            0.0,
-            2.0
-          ],
-          "argmax_facility": 1
-        },
-        "2": {
-          "loads": [
-            4.0,
-            5.0,
-            3.0,
-            0.0,
-            2.0
-          ],
-          "argmax_facility": 1
-        },
-        "3": {
-          "loads": [
-            4.0,
-            5.0,
-            3.0,
-            0.0,
-            2.0
-          ],
-          "argmax_facility": 1
-        },
-        "4": {
-          "loads": [
-            4.0,
-            5.0,
-            3.0,
-            0.0,
-            2.0
-          ],
-          "argmax_facility": 1
-        }
-      }
+      "strict_ranking_reversal": null,
+      "decision_flips": false
     },
     {
       "m": 5,
@@ -1799,62 +757,8 @@
           3.0
         ]
       },
-      "distinct_busiest_facilities_across_optima": [
-        2
-      ],
-      "decision_flips": false,
-      "example_configs": {
-        "0": {
-          "loads": [
-            0.0,
-            3.0,
-            4.0,
-            4.0,
-            3.0
-          ],
-          "argmax_facility": 2
-        },
-        "1": {
-          "loads": [
-            0.0,
-            3.0,
-            4.0,
-            4.0,
-            3.0
-          ],
-          "argmax_facility": 2
-        },
-        "2": {
-          "loads": [
-            0.0,
-            3.0,
-            4.0,
-            4.0,
-            3.0
-          ],
-          "argmax_facility": 2
-        },
-        "3": {
-          "loads": [
-            0.0,
-            3.0,
-            4.0,
-            4.0,
-            3.0
-          ],
-          "argmax_facility": 2
-        },
-        "4": {
-          "loads": [
-            0.0,
-            3.0,
-            4.0,
-            4.0,
-            3.0
-          ],
-          "argmax_facility": 2
-        }
-      }
+      "strict_ranking_reversal": null,
+      "decision_flips": false
     },
     {
       "m": 5,
@@ -1883,62 +787,8 @@
           2.0
         ]
       },
-      "distinct_busiest_facilities_across_optima": [
-        2
-      ],
-      "decision_flips": false,
-      "example_configs": {
-        "0": {
-          "loads": [
-            0.0,
-            4.0,
-            5.0,
-            3.0,
-            2.0
-          ],
-          "argmax_facility": 2
-        },
-        "1": {
-          "loads": [
-            0.0,
-            4.0,
-            5.0,
-            3.0,
-            2.0
-          ],
-          "argmax_facility": 2
-        },
-        "2": {
-          "loads": [
-            0.0,
-            4.0,
-            5.0,
-            3.0,
-            2.0
-          ],
-          "argmax_facility": 2
-        },
-        "3": {
-          "loads": [
-            0.0,
-            4.0,
-            5.0,
-            3.0,
-            2.0
-          ],
-          "argmax_facility": 2
-        },
-        "4": {
-          "loads": [
-            0.0,
-            4.0,
-            5.0,
-            3.0,
-            2.0
-          ],
-          "argmax_facility": 2
-        }
-      }
+      "strict_ranking_reversal": null,
+      "decision_flips": false
     },
     {
       "m": 5,
@@ -1967,62 +817,8 @@
           3.0
         ]
       },
-      "distinct_busiest_facilities_across_optima": [
-        1
-      ],
-      "decision_flips": false,
-      "example_configs": {
-        "0": {
-          "loads": [
-            3.0,
-            5.0,
-            3.0,
-            0.0,
-            3.0
-          ],
-          "argmax_facility": 1
-        },
-        "1": {
-          "loads": [
-            3.0,
-            5.0,
-            3.0,
-            0.0,
-            3.0
-          ],
-          "argmax_facility": 1
-        },
-        "2": {
-          "loads": [
-            3.0,
-            5.0,
-            3.0,
-            0.0,
-            3.0
-          ],
-          "argmax_facility": 1
-        },
-        "3": {
-          "loads": [
-            3.0,
-            5.0,
-            3.0,
-            0.0,
-            3.0
-          ],
-          "argmax_facility": 1
-        },
-        "4": {
-          "loads": [
-            3.0,
-            5.0,
-            3.0,
-            0.0,
-            3.0
-          ],
-          "argmax_facility": 1
-        }
-      }
+      "strict_ranking_reversal": null,
+      "decision_flips": false
     },
     {
       "m": 5,
@@ -2051,62 +847,8 @@
           3.0
         ]
       },
-      "distinct_busiest_facilities_across_optima": [
-        2
-      ],
-      "decision_flips": false,
-      "example_configs": {
-        "0": {
-          "loads": [
-            0.0,
-            3.0,
-            4.0,
-            4.0,
-            3.0
-          ],
-          "argmax_facility": 2
-        },
-        "1": {
-          "loads": [
-            0.0,
-            3.0,
-            4.0,
-            4.0,
-            3.0
-          ],
-          "argmax_facility": 2
-        },
-        "2": {
-          "loads": [
-            0.0,
-            3.0,
-            4.0,
-            4.0,
-            3.0
-          ],
-          "argmax_facility": 2
-        },
-        "3": {
-          "loads": [
-            0.0,
-            3.0,
-            4.0,
-            4.0,
-            3.0
-          ],
-          "argmax_facility": 2
-        },
-        "4": {
-          "loads": [
-            0.0,
-            3.0,
-            4.0,
-            4.0,
-            3.0
-          ],
-          "argmax_facility": 2
-        }
-      }
+      "strict_ranking_reversal": null,
+      "decision_flips": false
     }
   ]
 }
