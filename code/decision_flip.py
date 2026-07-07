@@ -3,13 +3,14 @@ Consequence of non-identification: a decision taken from a reported indicator ca
 solver-determined rather than model-determined. We make this concrete on the CFLP of
 identifiability_general.py.
 
-Decision: "which facility is the busiest" (e.g. the one to expand). For each facility
-j we compute the range of its load over the ENTIRE cost-optimal set (the mixed-integer
-optimal face of Proposition prop:optface). If two facilities' load ranges overlap so
-that each can be the maximum at some cost-optimal solution, then the "busiest facility"
--- and hence the expansion decision -- is fixed by the solver's tie-break, not by the
-model. We exhibit an instance where the argmax-load facility differs between two
-cost-optimal solutions: a genuine decision flip at zero cost difference.
+Decision: a pairwise ranking "is facility A busier than facility B" (which decides,
+say, the expansion target between two candidates). For a pair (j,k) we compute the
+range of load_j - load_k over the ENTIRE cost-optimal set (the mixed-integer optimal
+face of Proposition prop:optface). If that range straddles zero -- load_j > load_k at
+one cost-optimal solution and load_k > load_j at another -- the ranking, and the
+decision keyed to it, is fixed by the solver's tie-break, not the model: a genuine
+STRICT ranking reversal at zero cost difference. (Note: it is a pairwise ranking that
+flips, not necessarily the global argmax/"busiest overall".)
 
 Output: results/decision_flip.json
 """
@@ -73,10 +74,17 @@ def analyse(m, n, seed):
                 break
         if reversal:
             break
+    # service regret: a manager maximizing a facility's throughput (an unpriced
+    # secondary payoff) can forgo up to (max load - min load) over the cost-optimal
+    # set by trusting an arbitrary optimum. The largest such gap over facilities:
+    widths = [ranges[j][1] - ranges[j][0] for j in range(m)
+              if ranges[j][0] is not None and ranges[j][1] is not None]
+    service_regret = round(max(widths), 4) if widths else 0.0
     return {"m": m, "n": n, "seed": seed, "z_star": zstar,
             "load_ranges": ranges,
             "strict_ranking_reversal": reversal,
-            "decision_flips": reversal is not None}
+            "decision_flips": reversal is not None,
+            "service_regret_max_load_gap": service_regret}
 
 
 def main():
@@ -94,10 +102,13 @@ def main():
                 print(f"seed {seed}: no strict reversal", flush=True)
             if r["decision_flips"]:
                 flips.append(r)
+    regrets = [r["service_regret_max_load_gap"] for r in rows]
     summary = {
-        "model": "CFLP; decision = which facility is busiest (e.g. expand)",
+        "model": "CFLP; decision = pairwise facility ranking (e.g. expansion target)",
         "n_instances": len(rows),
-        "n_with_decision_flip": len(flips),
+        "n_with_strict_ranking_reversal": len(flips),
+        "max_service_regret_load_gap": round(max(regrets), 4) if regrets else 0.0,
+        "mean_service_regret_load_gap": round(sum(regrets) / len(regrets), 4) if regrets else 0.0,
         "example": flips[0] if flips else None,
     }
     outdir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "results"))
