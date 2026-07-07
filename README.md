@@ -41,7 +41,8 @@ q1-extension/
 │   ├── benchmark_service.py          Section 6 rho tables recomputed under the service objective (identified)
 │   ├── optface_rho.py                Prop optface: exact rho range over the FULL cost-optimal set (MILP) vs single-routing inner bound
 │   ├── identifiability_general.py    Generality: the identifiability test on a classic CFLP (a reported facility load is unidentified) -> results/identifiability_general.json
-│   ├── decision_flip.py              Consequence: a decision (which facility is busiest/to expand) flips across cost-optimal solutions -> results/decision_flip.json
+│   ├── decision_flip.py              Consequence: a pairwise facility ranking flips across cost-optimal solutions (+ service regret) -> results/decision_flip.json
+│   ├── eps_optimal.py                Certifies the same-day-delivery identified interval widens monotonically over the eps-optimal set (not knife-edge) -> results/eps_optimal.json
 │   ├── voi_equal_budget.py           Equal-budget VoI probe at n=10,12 (no warm start; honest-negative on magnitude at scale)
 │   ├── real_benchmark.py             Real-geography instances: OSM parcel-locker coords + OSMnx road distances
 │   ├── real_bench_run.py             rho non-identifiability + VoI on the real-geography benchmark -> results/real_benchmark.json
