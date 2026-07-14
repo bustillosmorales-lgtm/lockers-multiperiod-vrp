@@ -1,0 +1,51 @@
+# Archivo de entrada para el modelo VRP multi-período
+# Instancia pequeña con nueva matriz p para el segundo período
+# Formato: clave = valor
+# Las matrices/listas pueden ocupar varias líneas.
+# Comentarios con #
+
+V = [0, 1, 2, 3, 4, 5]
+K = [1, 2, 3, 4, 5]
+T = [0, 1]
+
+C = 3
+Q = 60
+H = 40
+MIPGap = 0.0
+TimeLimit = 180
+
+d = [
+    [0, 15, 18, 22, 25, 21],
+    [15, 0, 33, 15, 32, 32],
+    [18, 33, 0, 34, 20, 24],
+    [22, 15, 34, 0, 25, 43],
+    [25, 32, 20, 25, 0, 41],
+    [21, 32, 24, 43, 41, 0]
+]
+
+# Demanda nueva desde el depósito.
+# Filas = días en el orden de T, columnas = nodos en el orden de V.
+g = [
+    [0, 10, 5, 7, 4, 2],
+    [0,  6, 3, 4, 5, 1]
+]
+
+# Demandas entre lockers para cada día.
+# Debes definir un bloque p_day_t por cada t en T.
+p_day_0 = [
+    [0, 0, 0, 0, 0, 0],
+    [0, 0, 7, 9, 5, 4],
+    [0, 7, 0, 4, 7, 7],
+    [0, 5, 8, 0, 4, 8],
+    [0, 5, 2, 6, 0, 12],
+    [0, 10, 7, 3, 5, 0]
+]
+
+p_day_1 = [
+    [0, 0, 0, 0, 0, 0],
+    [0, 0, 8, 7, 6, 4],
+    [0, 6, 0, 5, 9, 5],
+    [0, 4, 7, 0, 5, 9],
+    [0, 6, 3, 5, 0, 11],
+    [0, 9, 6, 4, 6, 0]
+]

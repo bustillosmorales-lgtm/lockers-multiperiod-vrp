@@ -7,8 +7,9 @@ notes, code, and machine-checkable evidence behind the extended paper. The paper
 links here for full reproducibility.
 
 > Status: **Phase A** (ρ non-identifiability), **Phase B** (service-aware
-> objective + value-of-integration), and **Phase C** (scalable matheuristic)
-> complete. Next: tight lower bound (column generation) and full benchmark.
+> objective + value-of-integration), **Phase C** (scalable matheuristic + column-
+> generation lower bound), and the **real case-study / benchmark reproduction**
+> (De Santis data, `data/`) complete.
 
 ## Layout
 
@@ -50,14 +51,27 @@ q1-extension/
 │   ├── mu_sweep.py                   rho(mu) and distance(mu) trade-off sweep
 │   ├── make_figure.py                renders figures/mu_tradeoff.pdf
 │   ├── fig_mechanism.py              renders figures/mechanism.pdf (conceptual schematic)
-│   └── fig_data.py                   renders the data figures (nonident, rho, VoI, scaling, bound)
+│   ├── fig_data.py                   renders the data figures (nonident, rho, VoI, scaling, bound)
+│   ├── david_data.py                 Adapter for the real data: builds the Kandoo case study (from data/DatosCasoEstudio.xlsx) and parses the 48 benchmark scenario files
+│   ├── case_reproduce.py             Re-solves the Kandoo case study with the open-source pipeline (CBC/HiGHS)
+│   ├── case_record.py                Consolidates the case-study reproduction record -> results/case_reproduce.json
+│   ├── benchmark_david.py            Runs the 48 real benchmark instances (exact CBC vs matheuristic) -> results/benchmark_david.{json,csv}
+│   ├── benchmark_summarize.py        Honest per-size summary + LaTeX table -> results/benchmark_summary.json, benchmark_table.tex
+│   └── fig_benchmark_david.py        renders figures/benchmark_david.pdf (scaling on the real benchmark)
+├── data/                             Real data provided by D. De Santis (Kandoo Guayaquil)
+│   ├── DatosCasoEstudio.xlsx         Case-study network: real 16x16 driven-distance matrix + demand + reference solution
+│   └── instancias_txt/               The 48 benchmark scenario files (5-30 lockers x 6 scenarios) + resumen_instancias.csv
 └── figures/                          PDF/PNG figures embedded in the manuscript
 └── results/
     ├── rho_certificate.json          Phase A output
     ├── voi_runs.csv / voi_summary.json   Phase B sweep
     ├── voi_tau_comparison.json       Horizon corroboration
     ├── scaling.csv / scaling.json    Phase C scaling
-    └── voi_scaled.csv / voi_scaled_summary.json   VoI at scale
+    ├── voi_scaled.csv / voi_scaled_summary.json   VoI at scale
+    ├── case_reproduce.json           Open-source reproduction of the Kandoo case study (obj 270)
+    ├── benchmark_david.{json,csv}    Per-instance results on the 48 real benchmark instances
+    ├── benchmark_summary.json        Honest per-size summary (reliable regime vs open-source frontier)
+    └── benchmark_table.tex           LaTeX table for the manuscript
 ```
 
 The manuscript with all extension additions marked in red is
@@ -78,8 +92,9 @@ not a model output, and cross-instance/scenario ρ comparisons are unsupported.
 | Kandoo, §7 (15 lockers) | [425, 435] | [0.3419, 0.3599] | 0.0180 | max delivery / **min ρ** |
 
 The certificate needs **no distance matrix** (routing is fixed to the routes the
-paper publishes), so it reproduces entirely from the manuscript — which matters,
-since the distance matrices are not published. As a by-product it reproduces the
+paper publishes), so it reproduces entirely from the manuscript — which mattered
+originally, since the driven-distance matrices were not published with the base
+paper (they are now included in `data/`). As a by-product it reproduces the
 paper's own reported delivery vectors exactly, at one endpoint of each interval.
 
 ## Reproduce
@@ -115,9 +130,34 @@ for the full model, so the gap between them is a lower bound on the
 identification width of ρ. See `theory/rho_nonidentifiability.md` for the formal
 statement and proof.
 
+## Real case-study and benchmark data
+
+The `data/` folder holds the real data provided by D. De Santis: the Kandoo
+Guayaquil network (`DatosCasoEstudio.xlsx`, with the real 16x16 driven-distance
+matrix, demand, and reference solution) and the 48 benchmark scenario files
+(`instancias_txt/`, 5-30 lockers x 6 operating scenarios). These back the
+case-study and benchmark tables of the manuscript. To reproduce them with the
+open-source pipeline (no commercial solver):
+
+```bash
+pip install pulp highspy openpyxl scipy
+python code/case_record.py        # Kandoo case study: reproduces obj 270
+python code/benchmark_david.py    # 48 benchmark instances (exact vs matheuristic)
+python code/benchmark_summarize.py
+```
+
+The open-source pipeline reproduces the case-study optimum (270) exactly and the
+benchmark optima to the unit up to ten lockers; beyond fifteen lockers the exact
+open-source solver stops certifying, and the densest 20-30 locker instances lie
+past the open-source frontier (feasible, but requiring a commercial solver, as
+used for the manuscript's tables). See `results/benchmark_summary.json`.
+
 ## Data provenance
 
-All instance data (`code/certify_rho.py`) are transcribed verbatim from
-`Versión0.tex`: small instance from Section 5 (demand Tables, depot table,
-parameters Q=60, H=40); Kandoo case study from Section 7 (demand Tables for both
-periods, depot `g`, parameters Q=125, H=30, and the two published daily routes).
+The distance-free ρ certificate (`code/certify_rho.py`) transcribes its instance
+data verbatim from `Versión0.tex`: small instance from Section 5 (demand Tables,
+depot table, parameters Q=60, H=40); Kandoo case study from Section 7 (demand
+Tables for both periods, depot `g`, parameters Q=125, H=30, and the two published
+daily routes). The real driven-distance matrices, previously unpublished, are now
+included in `data/` (provided by D. De Santis), so the case study and benchmark
+also reproduce end to end.

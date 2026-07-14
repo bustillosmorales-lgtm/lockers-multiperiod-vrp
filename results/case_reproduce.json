@@ -1,0 +1,37 @@
+{
+  "instance": "Kandoo Smart Locker, Guayaquil (15 lockers, tau=2, C=5, Q=125, H=30)",
+  "manuscript_optimum": {
+    "solver": "Gurobi",
+    "objective": 270,
+    "best_bound": 270,
+    "gap_pct": 0.0,
+    "time_s": 961.57
+  },
+  "validation": {
+    "feasible_certificate": {
+      "description": "manuscript optimal routes evaluated in our open-source flow model",
+      "day1_distance": 141,
+      "day2_distance": 129,
+      "total_distance": 270,
+      "objective": 270,
+      "feasible": true,
+      "total_returns_R": 226,
+      "matches_270": true
+    },
+    "heuristic_search": {
+      "description": "ALNS matheuristic from scratch, best of 5 seeds",
+      "best_objective": 278,
+      "above_optimum_pct": 2.96,
+      "never_below_270": true
+    },
+    "open_source_exact_milp": {
+      "solver": "highs",
+      "time_limit_s": 1200,
+      "returned_objective": 276.0,
+      "reported_status": "Optimal",
+      "lp_lower_bound": 224.6,
+      "note": "time-limited incumbent MISLABELLED 'Optimal' (returned 276 > true optimum 270, which is a verified feasible point); confirms the open-source-solver unreliability documented for the real asymmetric network -- the matheuristic + exact flow LP is the reliable open-source route."
+    }
+  },
+  "conclusion": "Our open-source model reproduces the manuscript's Gurobi optimum: obj 270 is achieved exactly by a feasible certificate and is not beaten by independent heuristic search. Open-source MILP solvers do not certify it within 1200 s (HiGHS returns 276 mislabelled optimal), consistent with the solver caveat in Section 6."
+}

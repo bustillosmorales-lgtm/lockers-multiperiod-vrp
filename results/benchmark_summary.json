@@ -1,0 +1,75 @@
+{
+  "reliable_regime": {
+    "sizes": "5-15",
+    "per_size_table": [
+      {
+        "n": 5,
+        "n_instances": 6,
+        "n_proven_optimal": 6,
+        "mean_exact_time_s": 0.1,
+        "max_exact_time_s": 0.1,
+        "mean_heur_time_s": 1.6,
+        "mean_heur_gap_pct": 0.0,
+        "max_heur_gap_pct": 0.0
+      },
+      {
+        "n": 8,
+        "n_instances": 6,
+        "n_proven_optimal": 6,
+        "mean_exact_time_s": 12.7,
+        "max_exact_time_s": 29.9,
+        "mean_heur_time_s": 2.5,
+        "mean_heur_gap_pct": 0.0,
+        "max_heur_gap_pct": 0.0
+      },
+      {
+        "n": 10,
+        "n_instances": 6,
+        "n_proven_optimal": 6,
+        "mean_exact_time_s": 11.5,
+        "max_exact_time_s": 27.9,
+        "mean_heur_time_s": 3.1,
+        "mean_heur_gap_pct": 0.43,
+        "max_heur_gap_pct": 2.56
+      },
+      {
+        "n": 12,
+        "n_instances": 6,
+        "n_proven_optimal": 4,
+        "mean_exact_time_s": 45.8,
+        "max_exact_time_s": 90.6,
+        "mean_heur_time_s": 3.2,
+        "mean_heur_gap_pct": 1.09,
+        "max_heur_gap_pct": 1.57
+      },
+      {
+        "n": 15,
+        "n_instances": 6,
+        "n_proven_optimal": 0,
+        "mean_exact_time_s": 91.5,
+        "max_exact_time_s": 91.5,
+        "mean_heur_time_s": 5.5,
+        "mean_heur_gap_pct": 0.67,
+        "max_heur_gap_pct": 0.67
+      }
+    ]
+  },
+  "frontier": {
+    "n_instances": 18,
+    "sizes": [
+      20,
+      25,
+      30
+    ],
+    "n_exact_certified": 3,
+    "n_heuristic_feasible": 5,
+    "note": "scenario-B instances (n>=20): neither the open-source exact MILP (CBC/HiGHS return no certified integer solution within the limit) nor the matheuristic construction yields a flow-feasible routing at the stated Q=125, H=30. The complete-graph flow relaxation is feasible, so infeasibility is not established; demand-ordered construction removes the H-coupling barrier but a single ordered tour needs Q~276 (>2x the available 125), and splitting to respect Q reintroduces cross-tour deferral. Certifying these sizes needs a commercial solver (Gurobi, as used for the case study)."
+  },
+  "headline": {
+    "exact_optimal_up_to_n": 12,
+    "all_optimal_up_to_n": 10,
+    "max_heur_gap_pct_reliable": 2.56,
+    "mean_heur_time_s_at_15": 5.5,
+    "mean_exact_time_s_at_15": 91.5
+  }
+}
