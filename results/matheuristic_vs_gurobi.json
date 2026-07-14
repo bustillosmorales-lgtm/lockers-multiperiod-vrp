@@ -1,0 +1,63 @@
+{
+  "description": "Matheuristic vs commercial exact solver (Gurobi, manuscript Table size_compact_2) on the 48 real benchmark instances, distance objective.",
+  "gurobi_source": "manuscript Table tab:size_compact_2 (avg objective by size, 3600s Gurobi)",
+  "per_size": [
+    {
+      "n": 5,
+      "n_heur": 6,
+      "heur_mean": 156,
+      "gurobi_mean": 156.0,
+      "gap_pct": 0.0
+    },
+    {
+      "n": 8,
+      "n_heur": 6,
+      "heur_mean": 180,
+      "gurobi_mean": 180.0,
+      "gap_pct": 0.0
+    },
+    {
+      "n": 10,
+      "n_heur": 6,
+      "heur_mean": 235,
+      "gurobi_mean": 234.0,
+      "gap_pct": 0.4
+    },
+    {
+      "n": 12,
+      "n_heur": 6,
+      "heur_mean": 260.83,
+      "gurobi_mean": 256.33,
+      "gap_pct": 1.8
+    },
+    {
+      "n": 15,
+      "n_heur": 6,
+      "heur_mean": 297.33,
+      "gurobi_mean": 290.5,
+      "gap_pct": 2.4
+    },
+    {
+      "n": 20,
+      "n_heur": 0,
+      "heur_mean": null,
+      "gurobi_mean": 362.0,
+      "gap_pct": null
+    },
+    {
+      "n": 25,
+      "n_heur": 3,
+      "heur_mean": 440.33,
+      "gurobi_mean": 389.67,
+      "gap_pct": 13.0
+    },
+    {
+      "n": 30,
+      "n_heur": 2,
+      "heur_mean": 515.5,
+      "gurobi_mean": 437.0,
+      "gap_pct": 18.0
+    }
+  ],
+  "headline": "matheuristic within 2.4% of Gurobi up to 15 lockers; gap widens to 13-18% at 25-30"
+}

@@ -57,7 +57,8 @@ q1-extension/
 │   ├── case_record.py                Consolidates the case-study reproduction record -> results/case_reproduce.json
 │   ├── benchmark_david.py            Runs the 48 real benchmark instances (exact CBC vs matheuristic) -> results/benchmark_david.{json,csv}
 │   ├── benchmark_summarize.py        Honest per-size summary + LaTeX table -> results/benchmark_summary.json, benchmark_table.tex
-│   └── fig_benchmark_david.py        renders figures/benchmark_david.pdf (scaling on the real benchmark)
+│   ├── fig_benchmark_david.py        renders figures/benchmark_david.pdf (scaling on the real benchmark)
+│   └── value_case.py                 Managerial value on the case study: optimized vs nearest-neighbour plan (distance + return ratio) -> results/value_case.json
 ├── data/                             Real data provided by D. De Santis (Kandoo Guayaquil)
 │   ├── DatosCasoEstudio.xlsx         Case-study network: real 16x16 driven-distance matrix + demand + reference solution
 │   └── instancias_txt/               The 48 benchmark scenario files (5-30 lockers x 6 scenarios) + resumen_instancias.csv
@@ -71,7 +72,9 @@ q1-extension/
     ├── case_reproduce.json           Open-source reproduction of the Kandoo case study (obj 270)
     ├── benchmark_david.{json,csv}    Per-instance results on the 48 real benchmark instances
     ├── benchmark_summary.json        Honest per-size summary (reliable regime vs open-source frontier)
-    └── benchmark_table.tex           LaTeX table for the manuscript
+    ├── benchmark_table.tex           LaTeX table for the manuscript
+    ├── matheuristic_vs_gurobi.json   Matheuristic gap vs the commercial exact optimum by size
+    └── value_case.json               Managerial value of the model vs a nearest-neighbour plan
 ```
 
 The manuscript with all extension additions marked in red is
